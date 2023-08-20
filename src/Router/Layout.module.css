@@ -1,0 +1,18 @@
+header {
+  background-color: blue;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+.container nav {
+  width: 30%;
+  background-color: aqua;
+}
+.container main {
+  width: 100%;
+  background-color: orange;
+}
+
+/*# sourceMappingURL=Layout.module.css.map */

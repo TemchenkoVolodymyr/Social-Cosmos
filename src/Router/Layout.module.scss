@@ -1,0 +1,15 @@
+header{
+  background-color: blue;
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+  nav{
+    width: 30%;
+    background-color: aqua;
+  }
+  main{
+    width: 100%;
+    background-color: orange;
+  }
+}
