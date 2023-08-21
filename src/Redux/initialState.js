@@ -1,4 +1,5 @@
 export const initialStore = {
   isAuth:false,
-  user:null
+  user:null,
+  users:null
 };

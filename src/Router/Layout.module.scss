@@ -1,21 +1,28 @@
-*{
+* {
   margin: 0;
 }
-.wrapper{
+
+.wrapper {
+  height: 100vh;
+  padding: 5px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header {
 
 }
-header{
-  background-color: #ffffff;
-}
-.container{
+
+.container {
   display: flex;
   justify-content: space-between;
-  nav{
-    width: 30%;
-    background-color: #ffffff;
+
+  nav {
+    width: 40%;
   }
-  main{
+
+  main {
     width: 100%;
-    background-color: #ffffff;
+
   }
 }

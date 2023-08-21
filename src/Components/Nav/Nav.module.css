@@ -1,0 +1,35 @@
+.container {
+  box-shadow: rgba(42, 36, 44, 0.89) 0px 5px 15px;
+  text-align: center;
+  padding: 15px;
+}
+.container h1 {
+  font-size: 30px;
+  margin-bottom: 50px;
+  box-shadow: rgba(175, 15, 231, 0.89) 0px 5px 15px;
+  color: #2c0552;
+  padding: 15px;
+}
+.container .wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: rgba(72, 4, 108, 0.35) 0px 5px 15px;
+  color: #2c0552;
+}
+.container .wrapper p {
+  font-size: 30px;
+}
+.container .wrapper .isOnline {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+.container .wrapper .isOnline svg {
+  margin-right: 5px;
+  font-size: 30px;
+}
+
+/*# sourceMappingURL=Nav.module.css.map */

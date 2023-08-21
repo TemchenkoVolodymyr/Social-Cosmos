@@ -1,0 +1,37 @@
+.container {
+  //border: 1px solid rgba(137, 5, 210, 0.35);
+  box-shadow: rgba(42, 36, 44, 0.89) 0px 5px 15px;
+  text-align: center;
+  padding: 15px;
+
+  h1 {
+    font-size: 30px;
+    margin-bottom: 50px;
+    box-shadow: rgba(175, 15, 231, 0.89) 0px 5px 15px;
+    color: #2c0552;
+    padding: 15px;
+  }
+  .wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    //border: 1px solid #2d0346;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(72, 4, 108, 0.35) 0px 5px 15px;
+    color: #2c0552;
+    p{
+      font-size: 30px;
+    }
+    .isOnline{
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+
+      svg{
+        margin-right: 5px;
+        font-size: 30px;
+      }
+    }
+  }
+}

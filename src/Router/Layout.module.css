@@ -2,8 +2,11 @@
   margin: 0;
 }
 
-header {
-  background-color: #ffffff;
+.wrapper {
+  height: 100vh;
+  padding: 5px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .container {
@@ -11,12 +14,10 @@ header {
   justify-content: space-between;
 }
 .container nav {
-  width: 30%;
-  background-color: #ffffff;
+  width: 40%;
 }
 .container main {
   width: 100%;
-  background-color: #ffffff;
 }
 
 /*# sourceMappingURL=Layout.module.css.map */

@@ -4,10 +4,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {loginAC} from "../../Redux/Auth/AuthAC";
 import {useNavigate} from "react-router";
 import SignupForm from "./SignupForm/SignupForm";
-import {login, signup} from "../../ApiFeatures/ApiFeatures";
+import {editUser, login, signup} from "../../ApiFeatures/ApiFeatures";
 import LoginForm from "./LoginForm/LoginForm";
 import bgForm from '../../assets/form/pexels-brady-knoll-3744162.jpg'
-import {currentUserAC} from "../../Redux/CurrentUser/currentUserAC";
+import {changeOnlineStatus, currentUserAC} from "../../Redux/CurrentUser/currentUserAC";
 
 
 const Auth = () => {
@@ -27,6 +27,7 @@ const Auth = () => {
       password: authData.signup.values.password,
       confirmPassword: authData.signup.values.confirmPassword,
       email: authData.signup.values.email,
+      isOnline:false
     }
 
     signup(formData).then(res => {
@@ -35,10 +36,15 @@ const Auth = () => {
           name: res.data.data.user.name,
           email: res.data.data.user.email,
           token: res.data.token,
-          date: res.data.data.user.date
+          date: res.data.data.user.date,
+          isOnline:res.data.data.user.inOnline,
+          id: res.data.data.user._id,
         }
-        dispatch(loginAC())
         dispatch(currentUserAC(dataUser))
+        editUser(true,res.data.data.user._id)
+        dispatch(changeOnlineStatus())
+        dispatch(loginAC())
+
         navigate('/')
       }
     }).catch(err => {
@@ -62,11 +68,15 @@ const Auth = () => {
         email: res.data.data.user.email,
         date: res.data.data.user.date,
         id: res.data.data.user._id,
-        token: res.data.token
+        token: res.data.token,
+        isOnline:res.data.data.user.inOnline
       }
       if (res.status === 200) {
         dispatch(currentUserAC(dataUser))
+        editUser(true,res.data.data.user._id).then(res => console.log(res))
+        dispatch(changeOnlineStatus())
         dispatch(loginAC())
+
         navigate('/')
       }
     })

@@ -26,3 +26,13 @@ export const login = async ({email,password}) => {
   })
 }
 
+export const editUser = async (dataToChange,idUser) => {
+  return await axios.patch(`https://delicious-pizza-50bbb34e6fdd.herokuapp.com/social/${idUser}`,{
+    isOnline:dataToChange
+  })
+}
+
+export const getAllUsers = async () => {
+  return await axios.get('https://delicious-pizza-50bbb34e6fdd.herokuapp.com/social')
+}
+
