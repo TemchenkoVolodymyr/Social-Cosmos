@@ -1,10 +1,12 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
+import style from './Header.module.scss'
 
 const Header = () => {
   return (
-    <div>
-      Headerasdsa dsad as
+    <div className={style.container}>
+      <div>LOGO IMAGE</div>
+      <h1>SOCIAL COSMOS</h1>
+      <div>EXIT BUTTON</div>
     </div>
   );
 };

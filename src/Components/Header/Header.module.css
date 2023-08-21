@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  margin-bottom: 50px;
+}
+.container h1 {
+  color: #2d0346;
+  letter-spacing: 20px;
+  font-size: 30px;
+  animation-name: brighten;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes brighten {
+  0% {
+    color: #6d04e7;
+  }
+  25% {
+    color: #6f06b2;
+  }
+  50% {
+    color: #2e035e;
+  }
+  75% {
+    color: #6504a8;
+  }
+  100% {
+    color: #6d04e7;
+  }
+}
+
+/*# sourceMappingURL=Header.module.css.map */

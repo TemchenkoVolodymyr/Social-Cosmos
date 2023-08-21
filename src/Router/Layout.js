@@ -8,6 +8,7 @@ import bg from '../assets/bg3.png'
 import Nav from "../Components/Nav/Nav";
 import {getAllUsers} from "../ApiFeatures/ApiFeatures";
 import {allUsersAC} from "../Redux/AllUsers/allUsersAC";
+import Header from "../Components/Header/Header";
 
 const Layout = () => {
 
@@ -29,7 +30,9 @@ console.log(currentUser)
     <>
       <section>
         <div className={style.wrapper} style={{backgroundImage:`url(${bg})`}}>
-          <header>HEADER</header>
+          <header>
+            <Header/>
+          </header>
           <div className={style.container}>
             <nav>
               <Nav/>
