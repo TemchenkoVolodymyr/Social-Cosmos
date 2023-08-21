@@ -1,5 +1,9 @@
+* {
+  margin: 0;
+}
+
 header {
-  background-color: blue;
+  background-color: #ffffff;
 }
 
 .container {
@@ -8,11 +12,11 @@ header {
 }
 .container nav {
   width: 30%;
-  background-color: aqua;
+  background-color: #ffffff;
 }
 .container main {
   width: 100%;
-  background-color: orange;
+  background-color: #ffffff;
 }
 
 /*# sourceMappingURL=Layout.module.css.map */

@@ -1,0 +1,22 @@
+.btnsWrapper {
+  margin-top: 50px;
+}
+.btnsWrapper button {
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.9s;
+}
+.btnsWrapper button:hover {
+  background-color: #2d0346;
+}
+
+.active {
+  background-color: #2d0346;
+}
+
+.errorMessage {
+  color: #e70606;
+  font-weight: bolder;
+}
+
+/*# sourceMappingURL=SignupForm.module.css.map */

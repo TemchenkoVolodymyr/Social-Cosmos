@@ -1,15 +1,18 @@
+*{
+  margin: 0;
+}
 header{
-  background-color: blue;
+  background-color: #ffffff;
 }
 .container{
   display: flex;
   justify-content: space-between;
   nav{
     width: 30%;
-    background-color: aqua;
+    background-color: #ffffff;
   }
   main{
     width: 100%;
-    background-color: orange;
+    background-color: #ffffff;
   }
 }

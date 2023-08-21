@@ -1,17 +1,21 @@
-
 import './App.css';
 import {Route, Routes} from "react-router";
 import Layout from "./Router/Layout";
+import ProtectRouters from "./Router/ProtectRouters";
+import Auth from "./Pages/AuthPage/Auth";
+import Header from "./Components/Header/Header";
 
 function App() {
   return (
-   <>
-     <Routes>
-       <Route path={'/'} element={<Layout/>}>
+    <>
+        <Routes>
+            <Route path={'/'} element={
+              <ProtectRouters><Layout></Layout></ProtectRouters>
+            }></Route>
+            <Route path={'login'} element={<Auth/>}></Route>
 
-       </Route>
-     </Routes>
-   </>
+        </Routes>
+    </>
   );
 }
 
