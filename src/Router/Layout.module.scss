@@ -12,16 +12,26 @@ header {
 
 }
 
+nav {
+  width: 20%;
+
+}
+
+main {
+  width: 80%;
+}
+
 .container {
   display: flex;
   justify-content: space-between;
 
-  nav {
-    width: 20%;
+  .wrapperNav {
+    width: 100%;
+    height: 100%;
   }
 
-  main {
+  .wrapperMain {
     width: 100%;
-    height:1050px;
+
   }
 }

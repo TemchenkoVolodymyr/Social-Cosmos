@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './Main.module.scss'
+import {IoSendSharp} from "react-icons/io5";
 
 const Main = () => {
   return (
@@ -24,7 +25,13 @@ const Main = () => {
           </div>
         </div>
       </div>
-      <div className={style.wrapperTextarea}>textarea</div>
+      <div className={style.wrapperTextarea}>
+        <textarea placeholder="Write message..." wrap="off"></textarea>
+      </div>
+      <div className={style.test}>
+      <IoSendSharp fontSize={70}></IoSendSharp>
+      </div>
+
     </div>
   );
 };

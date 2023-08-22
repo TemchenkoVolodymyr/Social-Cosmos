@@ -38,11 +38,15 @@ const Layout = () => {
           </header>
           <div className={style.container}>
             <nav>
-              <Nav/>
+              <div className={style.wrapperNav}>
+                <Nav/>
+              </div>
             </nav>
             <main>
+              <div className={style.wrapperMain}>
               <Outlet></Outlet>
               <Main/>
+              </div>
             </main>
           </div>
         </div>
