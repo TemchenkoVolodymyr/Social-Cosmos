@@ -1,17 +1,16 @@
 import React, {useEffect} from 'react';
 import style from './Layout.module.scss'
 import {Outlet} from "react-router";
-import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import Auth from "../Pages/AuthPage/Auth";
 import bg from '../assets/bg3.png'
 import Nav from "../Components/Nav/Nav";
-import {editUser, getAllUsers} from "../ApiFeatures/ApiFeatures";
+import {editUser, getALlMessages, getAllUsers} from "../ApiFeatures/ApiFeatures";
 import {allUsersAC} from "../Redux/AllUsers/allUsersAC";
 import Header from "../Components/Header/Header";
-import {logoutAC} from "../Redux/Auth/AuthAC";
 import {Beforeunload} from "react-beforeunload";
 import Main from "../Components/Main/Main";
+import {messagesAC} from "../Redux/Messages/messagesAC";
 
 const Layout = () => {
 
@@ -23,6 +22,12 @@ const Layout = () => {
   useEffect(() => {
     getAllUsers().then(res => {
       dispatch(allUsersAC(res.data.data.result))
+    })
+    getALlMessages().then(res => {
+      if(res.status === 200) {
+        console.log('s')
+        dispatch(messagesAC(res.data.data.result))
+      }
     })
   },[])
   if (!isAuth) {

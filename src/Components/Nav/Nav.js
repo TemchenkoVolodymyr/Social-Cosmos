@@ -12,7 +12,7 @@ const Nav = () => {
       <h1>Astronauts in chat</h1>
       {users && users.map(user => <div className={style.wrapper}>
         <p>{user.name}</p>
-        {user.isOnline ? <p className={style.isOnline}> <RiRadioButtonLine color="green"></RiRadioButtonLine> Online</p>  : <p className={style.isOnline}> <RiRadioButtonLine color="red"></RiRadioButtonLine> Offline</p> }
+        {user.isOnline ? <p className={style.isOnline}> <RiRadioButtonLine color="green"></RiRadioButtonLine> Online</p>  : <p className={style.isOffline}> <RiRadioButtonLine color="red"></RiRadioButtonLine> Offline</p> }
         </div>
       )}
     </div>

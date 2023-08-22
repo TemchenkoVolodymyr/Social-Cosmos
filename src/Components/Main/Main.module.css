@@ -4,9 +4,21 @@
 }
 .container .wrapperMessages {
   box-sizing: border-box;
-  height: 80vh;
+  height: 82vh;
   width: 100%;
   background-color: rgba(110, 77, 53, 0.22);
+  overflow: auto;
+}
+.container .wrapperMessages::-webkit-scrollbar {
+  width: 8px;
+}
+.container .wrapperMessages::-webkit-scrollbar-track {
+  background: #414141;
+  border-radius: 20px;
+}
+.container .wrapperMessages::-webkit-scrollbar-thumb {
+  background-color: rgba(173, 172, 172, 0.56);
+  border-radius: 20px;
 }
 .container .wrapperMessages .message {
   display: flex;
@@ -18,7 +30,7 @@
   height: 8%;
   position: absolute;
   bottom: 5px;
-  width: 80%;
+  width: 79.5%;
 }
 .container .wrapperTextarea textarea {
   resize: none;
@@ -46,7 +58,7 @@
   align-items: center;
 }
 .wrapper .text {
-  margin: 0 50px;
+  margin: 0 90px;
   font-size: 18px;
 }
 .wrapper .date {
@@ -54,7 +66,6 @@
   color: #bebdbd;
 }
 .wrapper .name {
-  border-right: 1px solid black;
   color: #bebdbd;
 }
 

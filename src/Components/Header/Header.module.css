@@ -1,9 +1,9 @@
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
   padding: 5px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 .container h1 {
   color: #2d0346;
@@ -20,19 +20,18 @@
 .container .btnWrapper {
   display: flex;
   align-items: center;
+  padding: 15px 50px;
 }
 .container .btnWrapper p {
-  margin-right: 25px;
   font-size: 25px;
-  color: #2d0346;
-  border-bottom: 1px solid #7e0ac5;
+  color: #d3740b;
+  padding: 10px 25px;
+  box-shadow: rgba(103, 5, 36, 0.89) 0px 5px 15px;
   font-weight: bolder;
 }
 .container .btnWrapper .customBtn {
-  width: 130px;
-  height: 40px;
-  font-size: 20px;
-  color: #760da6;
+  font-size: 25px;
+  color: #da1212;
   border-radius: 5px;
   padding: 10px 25px;
   font-family: "Lato", sans-serif;
@@ -41,9 +40,8 @@
   cursor: pointer;
   transition: all 0.5s ease;
   position: relative;
-  display: inline-block;
-  box-shadow: rgba(62, 5, 80, 0.89) 0px 5px 15px;
   outline: none;
+  box-shadow: rgba(103, 5, 36, 0.89) 0px 5px 15px;
 }
 .container .btnWrapper .btn9 {
   border: none;

@@ -14,10 +14,6 @@ const Header = () => {
   }
   return (
     <div className={style.container}>
-      <div className={style.wrapperLogo}>
-        <img src={logo} alt={'logo'}/>
-      </div>
-      <h1>SOCIAL COSMOS</h1>
       <div className={style.btnWrapper}>
         <p>{currentUser.name.toUpperCase()}</p>
         <button className={`${style.customBtn} ${style.btn9}`} onClick={logout}>Log out</button>

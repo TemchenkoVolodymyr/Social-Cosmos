@@ -1,5 +1,6 @@
 export const initialStore = {
   isAuth:false,
   user:null,
-  users:null
+  users:null,
+  messages:null
 };
