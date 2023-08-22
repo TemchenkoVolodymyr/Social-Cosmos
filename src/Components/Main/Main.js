@@ -34,13 +34,14 @@ const Main = () => {
       })
     }
   }
-
+console.log(currentUser.id)
+  console.log(messages)
   return (
     <div className={style.container}>
       <div className={style.wrapperMessages}>
         {messages?.map(message => <div className={style.message}>
-          <div className={style.wrapper}>
-            <p className={style.name}>{message.author}</p>
+          <div className={currentUser.id === message.idUser ? style.yourMessage : style.wrapper}>
+            <p className={style.name}>{currentUser.id === message.idUser ? 'You' : message.author}</p>
             <div className={style.text}>
               <p>{message.message}</p>
             </div>

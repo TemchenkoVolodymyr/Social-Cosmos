@@ -69,6 +69,25 @@
   color: #bebdbd;
 }
 
+.yourMessage {
+  background-color: rgba(159, 1, 255, 0.27);
+  display: flex;
+  padding: 15px;
+  border-radius: 20px;
+  align-items: center;
+}
+.yourMessage .text {
+  margin: 0 90px;
+  font-size: 18px;
+}
+.yourMessage .date {
+  font-size: 14px;
+  color: #bebdbd;
+}
+.yourMessage .name {
+  color: #bebdbd;
+}
+
 .test {
   z-index: 1;
   display: flex;
