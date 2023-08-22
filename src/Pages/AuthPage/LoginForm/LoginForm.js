@@ -6,7 +6,11 @@ import {NavLink} from "react-router-dom";
 
 let LoginForm = (props) => {
   const {handleSubmit , changeForm ,errorLogin } = props
-  console.log(errorLogin)
+ const handleEnter = (e) => {
+    if(e.key === "Enter") {
+      handleSubmit()
+    }
+ }
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -18,7 +22,7 @@ let LoginForm = (props) => {
           <Field name="password" component="input" type="password" placeholder={'Password'} required/>
         </div>
         <div className={style.btnsWrapper}>
-          <button type="submit" className={style.active}>Sign in</button>
+          <button onKeyDown={handleEnter} type="submit" className={style.active}>Sign in</button>
           <button onClick={() => changeForm('signup')}>Sign Up</button>
         </div>
         <div>

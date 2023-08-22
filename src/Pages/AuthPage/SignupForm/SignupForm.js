@@ -4,7 +4,11 @@ import style from './SignupForm.module.scss'
 
 let SignupForm = (props) => {
   const {handleSubmit, changeForm,errorSignup} = props
-
+  const handleEnter = (e) => {
+    if(e.key === "Enter") {
+      handleSubmit()
+    }
+  }
 
   return (
     <>
@@ -23,7 +27,7 @@ let SignupForm = (props) => {
           <Field name="confirmPassword" component="input" type="password" placeholder={'Confirm Password'} required/>
         </div>
         <div className={style.btnsWrapper}>
-        <button type="submit" className={style.active}>Sign up</button>
+        <button onKeyDown={handleEnter} type="submit" className={style.active}>Sign up</button>
         <button onClick={() => changeForm('login')}>Sign in</button>
         </div>
         <div>
