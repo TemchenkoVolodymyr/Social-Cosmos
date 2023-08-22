@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {loginAC} from "../../Redux/Auth/AuthAC";
 import {useNavigate} from "react-router";
 import SignupForm from "./SignupForm/SignupForm";
-import {editUser, login, signup} from "../../ApiFeatures/ApiFeatures";
+import {editUser, getAllUsers, login, signup} from "../../ApiFeatures/ApiFeatures";
 import LoginForm from "./LoginForm/LoginForm";
 import bgForm from '../../assets/form/pexels-brady-knoll-3744162.jpg'
 import {changeOnlineStatus, currentUserAC} from "../../Redux/CurrentUser/currentUserAC";
@@ -41,11 +41,14 @@ const Auth = () => {
           id: res.data.data.user._id,
         }
         dispatch(currentUserAC(dataUser))
-        editUser(true,res.data.data.user._id)
-        dispatch(changeOnlineStatus())
-        dispatch(loginAC())
-
-        navigate('/')
+        editUser(true,res.data.data.user._id).then(res => {
+          if(res.status === 200) {
+            getAllUsers().catch(err => console.log(err))
+            dispatch(changeOnlineStatus())
+            dispatch(loginAC())
+            navigate('/')
+          }
+        })
       }
     }).catch(err => {
       if (err) {
@@ -73,11 +76,14 @@ const Auth = () => {
       }
       if (res.status === 200) {
         dispatch(currentUserAC(dataUser))
-        editUser(true,res.data.data.user._id).then(res => console.log(res))
-        dispatch(changeOnlineStatus())
-        dispatch(loginAC())
-
-        navigate('/')
+        editUser(true,res.data.data.user._id).then(res => {
+          if(res.status === 200) {
+            getAllUsers().catch(err => console.log(err))
+            dispatch(changeOnlineStatus())
+            dispatch(loginAC())
+            navigate('/')
+          }
+        })
       }
     })
       .catch(error => {

@@ -6,22 +6,28 @@ import {useDispatch, useSelector} from "react-redux";
 import Auth from "../Pages/AuthPage/Auth";
 import bg from '../assets/bg3.png'
 import Nav from "../Components/Nav/Nav";
-import {getAllUsers} from "../ApiFeatures/ApiFeatures";
+import {editUser, getAllUsers} from "../ApiFeatures/ApiFeatures";
 import {allUsersAC} from "../Redux/AllUsers/allUsersAC";
 import Header from "../Components/Header/Header";
+import {logoutAC} from "../Redux/Auth/AuthAC";
 
 const Layout = () => {
 
   const isAuth = useSelector((state) => state.isAuth);
   const currentUser = useSelector((state) => state.user);
   const dispatch = useDispatch()
-console.log(currentUser)
+
 
   useEffect(() => {
     getAllUsers().then(res => {
-      console.log(res)
       dispatch(allUsersAC(res.data.data.result))
     })
+
+    return () => {
+      console.log(currentUser)
+      editUser(false,currentUser.id)
+      dispatch(logoutAC())
+    }
   },[])
   if (!isAuth) {
     return <Auth></Auth>
