@@ -11,6 +11,7 @@ import {allUsersAC} from "../Redux/AllUsers/allUsersAC";
 import Header from "../Components/Header/Header";
 import {logoutAC} from "../Redux/Auth/AuthAC";
 import {Beforeunload} from "react-beforeunload";
+import Main from "../Components/Main/Main";
 
 const Layout = () => {
 
@@ -41,6 +42,7 @@ const Layout = () => {
             </nav>
             <main>
               <Outlet></Outlet>
+              <Main/>
             </main>
           </div>
         </div>

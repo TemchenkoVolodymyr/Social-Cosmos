@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 1088px;
+}
+.container .wrapperMessages {
+  background-color: rgba(102, 21, 189, 0.4);
+  height: 80%;
+  width: 100%;
+}
+.container .wrapperMessages .message {
+  display: flex;
+  background-color: rgba(45, 3, 70, 0.27);
+  color: #fffdfd;
+  border-radius: 20px;
+  padding: 15px;
+}
+.container .wrapperTextarea {
+  height: 20%;
+  background-color: rgba(20, 3, 40, 0.64);
+}
+
+/*# sourceMappingURL=Main.module.css.map */
