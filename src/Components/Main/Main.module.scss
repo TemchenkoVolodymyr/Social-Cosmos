@@ -10,17 +10,36 @@
 
     .message {
       display: flex;
-      background-color: rgba(45, 3, 70, 0.27);
+      //background-color: rgba(45, 3, 70, 0.27);
       color: #fffdfd;
       border-radius: 20px;
       padding: 15px;
-
-
     }
   }
 
   .wrapperTextarea {
     height: 20%;
     background-color: rgba(20, 3, 40, 0.64);
+  }
+}
+
+.wrapper {
+  background-color: rgba(45, 3, 70, 0.27);
+  display: flex;
+  padding: 15px;
+  border-radius: 20px;
+  align-items: center;
+
+  .text {
+    margin: 0  50px;
+    font-size: 18px;
+  }
+  .date{
+    font-size: 14px;
+    color: #bebdbd;
+  }
+  .name{
+    border-right: 1px solid black;
+    color: #bebdbd;
   }
 }
