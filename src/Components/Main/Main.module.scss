@@ -13,7 +13,8 @@
     &::-webkit-scrollbar {
       width: 8px;
     }
-    &::-webkit-scrollbar-track{
+
+    &::-webkit-scrollbar-track {
       background: #414141;
       border-radius: 20px;
     }
@@ -29,6 +30,10 @@
       color: #fffdfd;
       border-radius: 20px;
       padding: 15px;
+    }
+
+    @media (max-width: 767px) {
+      height: 81vh;
     }
   }
 
@@ -58,6 +63,9 @@
       box-sizing: border-box;
 
     }
+    @media (max-width: 767px){
+      width: 100%;
+    }
   }
 }
 
@@ -71,18 +79,39 @@
   .text {
     margin: 0 90px;
     font-size: 18px;
+    letter-spacing: 1.5px;
   }
 
   .date {
     font-size: 14px;
     color: #bebdbd;
+    letter-spacing: 2px;
   }
 
   .name {
     color: #bebdbd;
+    letter-spacing: 1.5px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 5px;
+    .text {
+      margin: 0 10px;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+    }
+    .date {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+    }
+    .name{
+      font-size: 10px;
+      letter-spacing: 1.5px;
+    }
   }
 }
-.yourMessage{
+
+.yourMessage {
   background-color: rgba(225, 142, 5, 0.3);
   display: flex;
   padding: 15px;
@@ -102,7 +131,25 @@
   .name {
     color: #bebdbd;
   }
+
+  @media (max-width: 767px) {
+    padding: 5px;
+    .text {
+      margin: 0 10px;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+    }
+    .date {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+    }
+    .name{
+      font-size: 10px;
+      letter-spacing: 1.5px;
+    }
+  }
 }
+
 .test {
   z-index: 1;
   display: flex;
@@ -114,5 +161,11 @@
 
   svg {
     color: #cb7f07;
+  }
+  @media (max-width: 767px) {
+    right: 5px;
+    svg{
+      font-size: 30px;
+    }
   }
 }

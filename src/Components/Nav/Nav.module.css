@@ -42,5 +42,10 @@
   margin-right: 5px;
   font-size: 30px;
 }
+@media (max-width: 767px) {
+  .container {
+    display: none;
+  }
+}
 
 /*# sourceMappingURL=Nav.module.css.map */

@@ -16,7 +16,7 @@ const Nav = () => {
   const indexOfLastPriceItem = currentPage * dataPerPage
   const indexOfFirstPriceItem = indexOfLastPriceItem - dataPerPage
 
-  const usersCurrentPage = users.slice(indexOfFirstPriceItem,indexOfLastPriceItem)
+  const usersCurrentPage = users?.slice(indexOfFirstPriceItem,indexOfLastPriceItem)
 
   return (
     <div className={style.container}>
@@ -27,7 +27,7 @@ const Nav = () => {
           <p className={style.isOffline}> <RiRadioButtonLine color="red"></RiRadioButtonLine> Offline</p> }
         </div>
       )}
-      <Pagination dataPerPage={dataPerPage} totalItems={users.length} paginate={paginate} ></Pagination>
+      <Pagination dataPerPage={dataPerPage} totalItems={users?.length} paginate={paginate} ></Pagination>
     </div>
   );
 };

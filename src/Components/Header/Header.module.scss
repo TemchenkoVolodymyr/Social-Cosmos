@@ -22,12 +22,19 @@
     display: flex;
     align-items: center;
     padding:  15px 50px;
+    @media (max-width: 767px) {
+      padding: 5px;
+    }
     p{
       font-size: 25px;
       color: #d3740b;
       padding: 10px 25px;
       box-shadow: rgba(103, 5, 36, 0.89) 0px 5px 15px;
       font-weight: bolder;
+      @media (max-width: 767px) {
+        font-size: 12px;
+        padding: 5px 15px;
+      }
     }
     .customBtn {
       font-size: 25px;
@@ -42,7 +49,10 @@
       position: relative;
       outline: none;
       box-shadow: rgba(103, 5, 36, 0.89) 0px 5px 15px;
-
+      @media (max-width: 767px) {
+        font-size: 12px;
+        padding: 5px 15px;
+      }
     }
     .btn9 {
       border: none;

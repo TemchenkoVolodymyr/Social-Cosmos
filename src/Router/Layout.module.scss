@@ -14,12 +14,18 @@ header {
 
 nav {
   width: 20%;
-
+  @media (max-width: 767px){
+    display: none;
+  }
 }
 
 main {
   width: 80%;
   margin-left: 10px;
+  @media (max-width: 767px){
+    width: 100%;
+    margin-left: 0;
+  }
 }
 
 .container {

@@ -34,8 +34,6 @@ const Main = () => {
       })
     }
   }
-console.log(currentUser.id)
-  console.log(messages)
   return (
     <div className={style.container}>
       <div className={style.wrapperMessages}>
