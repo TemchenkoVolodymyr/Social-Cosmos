@@ -10,6 +10,7 @@ import {editUser, getAllUsers} from "../ApiFeatures/ApiFeatures";
 import {allUsersAC} from "../Redux/AllUsers/allUsersAC";
 import Header from "../Components/Header/Header";
 import {logoutAC} from "../Redux/Auth/AuthAC";
+import {Beforeunload} from "react-beforeunload";
 
 const Layout = () => {
 
@@ -22,18 +23,13 @@ const Layout = () => {
     getAllUsers().then(res => {
       dispatch(allUsersAC(res.data.data.result))
     })
-
-    return () => {
-      console.log(currentUser)
-      editUser(false,currentUser.id)
-      dispatch(logoutAC())
-    }
   },[])
   if (!isAuth) {
     return <Auth></Auth>
   }
   return (
     <>
+      <Beforeunload onBeforeunload={() =>editUser(false,currentUser.id)}>
       <section>
         <div className={style.wrapper} style={{backgroundImage:`url(${bg})`}}>
           <header>
@@ -49,6 +45,7 @@ const Layout = () => {
           </div>
         </div>
       </section>
+      </Beforeunload>
     </>
   );
 };
