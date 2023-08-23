@@ -3,7 +3,7 @@
   padding: 15px;
 }
 .container h1 {
-  font-size: 30px;
+  font-size: 20px;
   margin-bottom: 50px;
   box-shadow: rgba(192, 135, 9, 0.89) 0px 5px 15px;
   color: rgba(236, 150, 5, 0.89);
@@ -20,7 +20,7 @@
   color: #da790a;
 }
 .container .wrapper p {
-  font-size: 30px;
+  font-size: 20px;
 }
 .container .wrapper .isOnline {
   display: flex;

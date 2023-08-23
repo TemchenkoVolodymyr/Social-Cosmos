@@ -1,35 +1,32 @@
 .container {
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
-  padding: 5px;
+  padding: 5px 15px;
   margin-bottom: 20px;
   h1{
-    color: #2d0346;
+    color: #a44a07;
     letter-spacing: 20px;
     font-size: 30px;
     animation-name: brighten;
-    animation-duration: 7s;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
-  }
-  .wrapperLogo{
-    img{
-      animation: logoRotate 15s linear infinite;
-      max-width: 85px;
-    }
+    box-shadow: rgba(241, 130, 5, 0.15) 0px 5px 15px;
+    border-radius: 5px;
+    padding: 5px;
   }
   .btnWrapper{
     display: flex;
     align-items: center;
-    padding:  15px 50px;
+    //padding:  15px 50px;
     @media (max-width: 767px) {
-      padding: 5px;
+      //padding: 5px;
     }
     p{
-      font-size: 25px;
+      font-size: 20px;
       color: #d3740b;
       padding: 10px 25px;
-      box-shadow: rgba(103, 5, 36, 0.89) 0px 5px 15px;
+      box-shadow: rgba(208, 127, 4, 0.34) 0px 5px 15px;
       font-weight: bolder;
       @media (max-width: 767px) {
         font-size: 12px;
@@ -37,7 +34,7 @@
       }
     }
     .customBtn {
-      font-size: 25px;
+      font-size: 20px;
       color: #da1212;
       border-radius: 5px;
       padding: 10px 25px;
@@ -48,7 +45,7 @@
       transition: all 0.5s ease;
       position: relative;
       outline: none;
-      box-shadow: rgba(103, 5, 36, 0.89) 0px 5px 15px;
+      box-shadow: rgba(208, 127, 4, 0.34) 0px 5px 15px;
       @media (max-width: 767px) {
         font-size: 12px;
         padding: 5px 15px;
@@ -89,19 +86,19 @@
 
 @keyframes brighten {
   0% {
-    color: #6d04e7;
+    color: #fc8a01;
   }
   25% {
-    color: #6f06b2;
+    color: #e17f01
   }
   50% {
-    color: #2e035e;
+    color: #c47001
   }
   75% {
-    color: #6504a8;
+    color: #e17f01
   }
   100% {
-    color: #6d04e7;
+    color: #fc8a01;
   }
 }
 @keyframes logoRotate {
@@ -111,4 +108,61 @@
   to{
     transform: rotate(360deg);
   }
+}
+
+.bookacket {
+  height: 58px;
+  width: 158px;
+  position: relative;
+  background: linear-gradient(
+                  135deg
+          , #cc6d0d, #d36e05, #42b00f);
+  border-radius: 10px;
+  cursor: default;
+  animation: animate 10.5s linear infinite;
+}
+.bookacket .uncomenkad,
+.bookacket span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.bookacket .uncomenkad{
+  z-index: 999;
+  height: 58px;
+  width: 158px;
+  background: #1b1b1b;
+  border-radius: 6px;
+  text-align: center;
+}
+.uncomenkad .vemekunys {
+  line-height: 60px;
+  color: #fbf4f4;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: linear-gradient(
+                  135deg
+          , #d98f01, #b9680d, #a18807);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate 10.5s linear infinite;
+}
+@keyframes animate {
+  100%{
+    filter: hue-rotate(360deg);
+  }
+}
+.bookacket span{
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  background: inherit;
+}
+.bookacket span:first-child{
+  filter: blur(7px);
+}
+.bookacket span:last-child{
+  filter: blur(20px);
 }

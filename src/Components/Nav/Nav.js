@@ -6,7 +6,7 @@ import Pagination from "../Pagination/Pagination";
 
 const Nav = () => {
   const [currentPage,setCurrentPage] = useState(1)
-  const [dataPerPage,setDataPerPage] = useState(12)
+  const [dataPerPage,setDataPerPage] = useState(7)
 
 
   const paginate = (num) => setCurrentPage(num)

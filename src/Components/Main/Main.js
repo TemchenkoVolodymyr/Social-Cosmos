@@ -38,8 +38,8 @@ const Main = () => {
     <div className={style.container}>
       <div className={style.wrapperMessages}>
         {messages?.map(message => <div className={style.message}>
+          <p style={currentUser.id ===message.idUser ? {background:'rgba(225, 142, 5, 0.3)'} : {background:"rgba(45, 3, 70, 0.27)"}} className={style.name}>{currentUser.id === message.idUser ? 'You' : message.author}</p>
           <div className={currentUser.id === message.idUser ? style.yourMessage : style.wrapper}>
-            <p className={style.name}>{currentUser.id === message.idUser ? 'You' : message.author}</p>
             <div className={style.text}>
               <p>{message.message}</p>
             </div>
@@ -52,7 +52,7 @@ const Main = () => {
                   onChange={(e) => setMessage(e.target.value)}></textarea>
       </div>
       <div className={style.test}>
-      <IoSendSharp onClick={sendNewMessage} fontSize={70}></IoSendSharp>
+      <IoSendSharp onClick={sendNewMessage} fontSize={50}></IoSendSharp>
       </div>
 
     </div>

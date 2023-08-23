@@ -4,7 +4,7 @@
 }
 .container .wrapperMessages {
   box-sizing: border-box;
-  height: 82vh;
+  height: 79vh;
   width: 100%;
   background-color: rgba(110, 77, 53, 0.22);
   overflow: auto;
@@ -22,9 +22,19 @@
 }
 .container .wrapperMessages .message {
   display: flex;
+  align-items: center;
   color: #fffdfd;
   border-radius: 20px;
   padding: 15px;
+}
+.container .wrapperMessages .message .name {
+  margin-right: 25px;
+  padding: 15px 5px;
+  background-color: rgba(45, 3, 70, 0.54);
+  border-radius: 10px;
+  width: 50px;
+  font-size: 13px;
+  text-align: center;
 }
 @media (max-width: 767px) {
   .container .wrapperMessages {
@@ -68,7 +78,7 @@
   align-items: center;
 }
 .wrapper .text {
-  margin: 0 90px;
+  margin: 0 20px;
   font-size: 18px;
   letter-spacing: 1.5px;
 }
@@ -76,10 +86,6 @@
   font-size: 14px;
   color: #bebdbd;
   letter-spacing: 2px;
-}
-.wrapper .name {
-  color: #bebdbd;
-  letter-spacing: 1.5px;
 }
 @media (max-width: 767px) {
   .wrapper {
@@ -94,10 +100,6 @@
     font-size: 10px;
     letter-spacing: 1.5px;
   }
-  .wrapper .name {
-    font-size: 10px;
-    letter-spacing: 1.5px;
-  }
 }
 
 .yourMessage {
@@ -108,14 +110,12 @@
   align-items: center;
 }
 .yourMessage .text {
-  margin: 0 90px;
+  margin-right: 25px;
   font-size: 18px;
+  letter-spacing: 1.5px;
 }
 .yourMessage .date {
   font-size: 14px;
-  color: #bebdbd;
-}
-.yourMessage .name {
   color: #bebdbd;
 }
 @media (max-width: 767px) {
