@@ -37,8 +37,15 @@
   text-align: center;
 }
 @media (max-width: 767px) {
+  .container .wrapperMessages .message .name {
+    margin-right: 10px;
+    padding: 10px 5px;
+    font-size: 11px;
+  }
+}
+@media (max-width: 767px) {
   .container .wrapperMessages {
-    height: 81vh;
+    height: 80vh;
   }
 }
 .container .wrapperTextarea {

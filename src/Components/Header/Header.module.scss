@@ -14,13 +14,18 @@
     box-shadow: rgba(241, 130, 5, 0.15) 0px 5px 15px;
     border-radius: 5px;
     padding: 5px;
+    @media (max-width: 767px) {
+     font-size: 12px;
+      letter-spacing: 5px;
+    }
   }
   .btnWrapper{
     display: flex;
     align-items: center;
-    //padding:  15px 50px;
     @media (max-width: 767px) {
       //padding: 5px;
+      display: none;
+
     }
     p{
       font-size: 20px;
@@ -120,6 +125,9 @@
   border-radius: 10px;
   cursor: default;
   animation: animate 10.5s linear infinite;
+  @media (max-width: 767px) {
+    display: none;
+  }
 }
 .bookacket .uncomenkad,
 .bookacket span{
@@ -135,6 +143,9 @@
   background: #1b1b1b;
   border-radius: 6px;
   text-align: center;
+  @media (max-width: 767px) {
+    width: 100px;
+  }
 }
 .uncomenkad .vemekunys {
   line-height: 60px;
@@ -148,6 +159,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: animate 10.5s linear infinite;
+  @media (max-width: 767px) {
+    font-size: 12px;
+  }
 }
 @keyframes animate {
   100%{

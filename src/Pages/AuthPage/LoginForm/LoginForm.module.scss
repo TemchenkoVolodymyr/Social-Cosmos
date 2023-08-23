@@ -1,5 +1,4 @@
 form {
-  //width: 600px;
   font-size: 20px;
   display: flex;
   flex-direction: column;
@@ -8,13 +7,15 @@ form {
   padding: 0 50px;
   border-radius: 20px;
   box-shadow: rgba(122, 8, 189, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(86, 13, 134, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
+  @media (max-width: 767px) {
+    padding: 0 15px;
+    font-size: 15px;
+  }
 
   div {
     margin-bottom: 40px;
-
-    label {
-
+    @media (max-width: 767px) {
+      margin-bottom:15px;
     }
 
     input {
@@ -26,6 +27,11 @@ form {
       font-size: 20px;
       font-weight: bolder;
       color: black;
+      @media (max-width: 767px) {
+        width: 200px;
+        padding: 15px;
+        font-size: 15px;
+      }
     }
   }
 
@@ -38,6 +44,11 @@ form {
     border: none;
     background-color: rgba(135, 12, 199, 0.42);
     box-shadow: rgba(135, 12, 199, 0.16) 0px 15px 10px;
+    @media (max-width: 767px) {
+      padding: 10px 20px;
+      font-size: 15px;
+      margin: 20px 0;
+    }
   }
 
   h1 {
@@ -45,12 +56,19 @@ form {
     font-style: oblique;
     margin: 70px 0;
     color: #880dda;
+    @media (max-width: 767px) {
+      font-size: 19px;
+      margin: 30px 0;
+    }
 
   }
 }
 
 .btnsWrapper {
   margin-top: 50px;
+  @media (max-width: 767px) {
+    margin-top: 20px;
+  }
 
   button {
     margin-left: 10px;
@@ -68,4 +86,8 @@ form {
 .errorMessage{
   color: #e70606;
   font-weight: bolder;
+  @media (max-width: 767px) {
+    font-size: 12px;
+  }
+
 }

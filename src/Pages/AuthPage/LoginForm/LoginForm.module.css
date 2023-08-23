@@ -8,8 +8,19 @@ form {
   border-radius: 20px;
   box-shadow: rgba(122, 8, 189, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(86, 13, 134, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+@media (max-width: 767px) {
+  form {
+    padding: 0 15px;
+    font-size: 15px;
+  }
+}
 form div {
   margin-bottom: 40px;
+}
+@media (max-width: 767px) {
+  form div {
+    margin-bottom: 15px;
+  }
 }
 form div input {
   width: 400px;
@@ -21,6 +32,13 @@ form div input {
   font-weight: bolder;
   color: black;
 }
+@media (max-width: 767px) {
+  form div input {
+    width: 200px;
+    padding: 15px;
+    font-size: 15px;
+  }
+}
 form button {
   padding: 20px 70px;
   color: white;
@@ -31,15 +49,33 @@ form button {
   background-color: rgba(135, 12, 199, 0.42);
   box-shadow: rgba(135, 12, 199, 0.16) 0px 15px 10px;
 }
+@media (max-width: 767px) {
+  form button {
+    padding: 10px 20px;
+    font-size: 15px;
+    margin: 20px 0;
+  }
+}
 form h1 {
   font-size: 40px;
   font-style: oblique;
   margin: 70px 0;
   color: #880dda;
 }
+@media (max-width: 767px) {
+  form h1 {
+    font-size: 19px;
+    margin: 30px 0;
+  }
+}
 
 .btnsWrapper {
   margin-top: 50px;
+}
+@media (max-width: 767px) {
+  .btnsWrapper {
+    margin-top: 20px;
+  }
 }
 .btnsWrapper button {
   margin-left: 10px;
@@ -57,6 +93,11 @@ form h1 {
 .errorMessage {
   color: #e70606;
   font-weight: bolder;
+}
+@media (max-width: 767px) {
+  .errorMessage {
+    font-size: 12px;
+  }
 }
 
 /*# sourceMappingURL=LoginForm.module.css.map */

@@ -16,9 +16,20 @@
   border-radius: 5px;
   padding: 5px;
 }
+@media (max-width: 767px) {
+  .container h1 {
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+}
 .container .btnWrapper {
   display: flex;
   align-items: center;
+}
+@media (max-width: 767px) {
+  .container .btnWrapper {
+    display: none;
+  }
 }
 .container .btnWrapper p {
   font-size: 20px;
@@ -115,6 +126,11 @@
   cursor: default;
   animation: animate 10.5s linear infinite;
 }
+@media (max-width: 767px) {
+  .bookacket {
+    display: none;
+  }
+}
 
 .bookacket .uncomenkad,
 .bookacket span {
@@ -132,6 +148,11 @@
   border-radius: 6px;
   text-align: center;
 }
+@media (max-width: 767px) {
+  .bookacket .uncomenkad {
+    width: 100px;
+  }
+}
 
 .uncomenkad .vemekunys {
   line-height: 60px;
@@ -143,6 +164,11 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: animate 10.5s linear infinite;
+}
+@media (max-width: 767px) {
+  .uncomenkad .vemekunys {
+    font-size: 12px;
+  }
 }
 
 @keyframes animate {

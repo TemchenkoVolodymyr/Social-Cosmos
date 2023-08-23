@@ -9,7 +9,7 @@
   color: #fc9e00;
   background-color: transparent;
   border-radius: 20px;
-  box-shadow: rgb(246, 155, 67) 0px 5px 15px;
+  box-shadow: rgb(21, 21, 20) 0px 5px 15px;
   margin: 5px 10px;
 }
 .items li:hover {
@@ -17,10 +17,23 @@
   cursor: pointer;
   box-shadow: rgba(114, 5, 5, 0.89) 0px 5px 15px;
 }
+@media (max-width: 767px) {
+  .items li {
+    background-color: #1b1b1b;
+    color: #fdfdfd;
+  }
+}
 
 .active {
   color: #650404 !important;
   box-shadow: rgba(103, 4, 4, 0.89) 0px 5px 15px !important;
+}
+@media (max-width: 767px) {
+  .active {
+    background-color: #fdfdfd !important;
+    color: #1b1b1b !important;
+    box-shadow: rgba(131, 125, 125, 0.89) 0px 5px 15px !important;
+  }
 }
 
 /*# sourceMappingURL=Pagination.module.css.map */
