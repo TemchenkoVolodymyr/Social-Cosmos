@@ -75,6 +75,9 @@
     font-size: 20px;
   }
 }
+.container .wrapper:hover {
+  cursor: pointer;
+}
 @media (max-width: 767px) {
   .container {
     display: none;

@@ -4,6 +4,11 @@ import { reducer as formReducer } from 'redux-form'
 import {currentUserReducer} from "./CurrentUser/currentUserReducer";
 import {allUsersReducer} from "./AllUsers/allUsersReducer";
 import {messagesReducer} from "./Messages/messagesReducer";
+import {onlineUsersReducer} from "./OnlineUsers/onlineUserReducer";
+import {recipientUserReducer} from "./recipientUser/recipientUserReducer";
+import {currentChatReducer} from "./CurrentChat/currentChatReducer";
+import {currentChatTextReducer} from "./CurrentChatTexts/currentChatTextReducer";
+import {onlineMessagesReducer} from "./onlineMessages/onlineMessagesReducer";
 
 
 export default combineReducers({
@@ -12,5 +17,11 @@ export default combineReducers({
   user:currentUserReducer,
   users:allUsersReducer,
   messages:messagesReducer,
+  onlineUsers:onlineUsersReducer,
+  recipientUser:recipientUserReducer,
+  currentChat:currentChatReducer,
+  currentChatTexts:currentChatTextReducer,
+  onlineMessages:onlineMessagesReducer
+
   },
 );

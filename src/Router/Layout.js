@@ -18,18 +18,17 @@ const Layout = () => {
   const currentUser = useSelector((state) => state.user);
   const dispatch = useDispatch()
 
-
   useEffect(() => {
     getAllUsers().then(res => {
       dispatch(allUsersAC(res.data.data.result))
     })
-    getALlMessages().then(res => {
-      if(res.status === 200) {
-        console.log('s')
-        dispatch(messagesAC(res.data.data.result))
-      }
-    })
+    // getALlMessages().then(res => {
+    //   if(res.status === 200) {
+    //     dispatch(messagesAC(res.data.data.result))
+    //   }
+    // })
   },[])
+
   if (!isAuth) {
     return <Auth></Auth>
   }

@@ -1,60 +1,84 @@
 import React, {useState} from 'react';
 import style from './Main.module.scss'
 import {IoSendSharp} from "react-icons/io5";
-import axios from "axios";
-import {getALlMessages, setNewMessage} from "../../ApiFeatures/ApiFeatures";
+import {
+  createCurrentChatText,
+  getCurrentChatDialog,
+} from "../../ApiFeatures/ApiFeatures";
 import {useDispatch, useSelector} from "react-redux";
-import {messagesAC} from "../../Redux/Messages/messagesAC";
+import ChatContext from "./ChatContext";
+import {currentChatTextAC} from "../../Redux/CurrentChatTexts/currentChatTextAC";
+
 
 const Main = () => {
-  const [message,setMessage] = useState("")
+  const [message, setMessage] = useState("")
   const currentUser = useSelector((state) => state.user);
-
-  const messages = useSelector((state) => state.messages)
+  const [currentMessageToSend, setCurrentMessageToSend] = useState(null)
   const dispatch = useDispatch()
-  const sendNewMessage = async () => {
-    if(message) {
+  const recipientUser = useSelector((state) => state.recipientUser)
+  const currentChatItems = useSelector((state) => state.currentChatTexts)
 
-      setNewMessage(message, currentUser.id, currentUser.name).then(res => {
-        if (res.status === 200) {
-          setMessage('')
-          getALlMessages().then(res => dispatch(messagesAC(res.data.data.result)))
+  const currentChat = useSelector((state) => state.currentChat)
+
+  const sendNewMessage = async () => {
+    if (message) {
+      setCurrentMessageToSend(message)
+      createCurrentChatText(currentChat._id,currentUser.id,message).then(res => {
+        if(res.status === 200) {
+          setMessage("")
+          getCurrentChatDialog(currentChat._id).then(res => {
+            if (res.status === 200) {
+              dispatch(currentChatTextAC(res.data))
+            }
+          })
         }
       })
     }
   }
 
   const handleEnter = (e) => {
-    if(e.key === "Enter" && message) {
-      setNewMessage(message, currentUser.id, currentUser.name).then(res => {
-        if (res.status === 200) {
-          setMessage('')
-          getALlMessages().then(res => dispatch(messagesAC(res.data.data.result)))
+    if (e.key === "Enter" && message) {
+      setCurrentMessageToSend(message)
+      createCurrentChatText(currentChat._id,currentUser._id,message).then(res => {
+        if(res.status === 200) {
+          setMessage("")
+          getCurrentChatDialog(currentChat._id).then(res => {
+            if (res.status === 200) {
+              dispatch(currentChatTextAC(res.data))
+            }
+          })
         }
       })
     }
   }
+console.log(currentChatItems)
+  console.log(currentUser)
   return (
     <div className={style.container}>
-      <div className={style.wrapperMessages}>
-        {messages?.map(message => <div className={style.message}>
-          <p style={currentUser.id ===message.idUser ? {background:'rgba(225, 142, 5, 0.3)'} : {background:"rgba(45, 3, 70, 0.27)"}} className={style.name}>{currentUser.id === message.idUser ? 'You' : message.author}</p>
-          <div className={currentUser.id === message.idUser ? style.yourMessage : style.wrapper}>
-            <div className={style.text}>
-              <p>{message.message}</p>
-            </div>
-            <p className={style.date}>{message.date}</p>
-          </div>
-        </div>)}
+      {recipientUser && <div>
+        <p>{recipientUser.name}</p>
+        <p>date when user logout</p>
+      </div>}
+      <div>
+        {currentChatItems && currentChatItems.map(item => {
+          const date = new Date(item.createdAt)
+          const hours = date.getHours();
+          const minutes = date.getMinutes();
+          const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`
+          return (<div className={item.senderId === currentUser.id ? style.you : style.another}>
+            <p>{item.text}</p>
+            <p>{formattedTime ? formattedTime : null}</p>
+          </div>)
+        })}
       </div>
       <div className={style.wrapperTextarea}>
         <textarea onKeyDown={handleEnter} placeholder="Write message..." wrap="off" value={message}
                   onChange={(e) => setMessage(e.target.value)}></textarea>
       </div>
       <div className={style.test}>
-      <IoSendSharp onClick={sendNewMessage} fontSize={50}></IoSendSharp>
+        <IoSendSharp onClick={sendNewMessage} fontSize={50}></IoSendSharp>
       </div>
-
+      <ChatContext  message={currentMessageToSend} user={currentUser}></ChatContext>
     </div>
   );
 };
