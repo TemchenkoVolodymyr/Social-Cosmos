@@ -20,7 +20,8 @@ const Layout = () => {
 
   useEffect(() => {
     getAllUsers().then(res => {
-      dispatch(allUsersAC(res.data.data.result))
+      const newArray = res.data.data.result.filter(item => item._id !== currentUser.id)
+      dispatch(allUsersAC(newArray))
     })
     // getALlMessages().then(res => {
     //   if(res.status === 200) {
@@ -35,12 +36,8 @@ const Layout = () => {
   return (
     <>
       <Beforeunload onBeforeunload={() =>editUser(false,currentUser.id)}>
-      <section>
-        <div className={style.wrapper} style={{backgroundImage:`url(${bg})`}}>
-          <header>
-            <Header/>
-          </header>
-          <div className={style.container}>
+
+        <div className={style.wrapper}>
             <nav>
               <div className={style.wrapperNav}>
                 <Nav/>
@@ -52,9 +49,8 @@ const Layout = () => {
               <Main/>
               </div>
             </main>
-          </div>
+
         </div>
-      </section>
       </Beforeunload>
     </>
   );

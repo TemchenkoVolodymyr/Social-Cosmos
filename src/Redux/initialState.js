@@ -1,11 +1,12 @@
 export const initialStore = {
   isAuth:false,
   user:null,
-  users:null,
+  users:[],
   messages:null,
   onlineUsers:null,
   recipientUser:null,
   currentChat:null,
   currentChatDialogs:null,
-  newOnlineMessage:[]
+  newOnlineMessage:[],
+  allChatsCurrentLoginUser:[]
 };

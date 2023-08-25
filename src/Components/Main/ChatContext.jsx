@@ -24,7 +24,8 @@ const ChatContext = (props) => {
   useEffect(() => {
     if (socket === null) return
     socket.emit("addNewUser", user?.id)
-    socket.on("getOnlineUsers", (res) => dispatch(onlineUserAC(res)))
+    socket.on("getOnlineUsers", (res) => {
+      dispatch(onlineUserAC(res))})
   }, [socket])
 
 
@@ -33,8 +34,8 @@ const ChatContext = (props) => {
     if (socket === null) return;
     const newMessageData = {
       message: message,
-      chatId: currentChat._id,
-      senderId: currentUser.id
+      chatId: currentChat?._id,
+      senderId: currentUser?.id
     }
     const recipientId = currentChat?.members?.find((id) => id !== user?.id)
     socket.emit("sendMessage", {...newMessageData, recipientId})

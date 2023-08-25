@@ -1,24 +1,140 @@
 .container {
-  text-align: center;
-  padding: 15px;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  font-family: Candara;
+  letter-spacing: 1.3px;
 }
 @media (max-width: 767px) {
   .container {
     margin-top: 50px;
   }
 }
-.container h1 {
-  font-size: 20px;
-  margin-bottom: 50px;
-  box-shadow: rgba(192, 135, 9, 0.89) 0px 5px 15px;
-  color: rgba(236, 150, 5, 0.89);
-  padding: 15px;
-  letter-spacing: 1px;
+.container .header {
+  background-color: rgba(54, 69, 122, 0.36);
+  padding: 20px;
+  transition: all 0.5s;
 }
-@media (max-width: 767px) {
-  .container h1 {
-    display: none;
-  }
+.container .header h1 {
+  color: #aadbe1;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.9s;
+}
+.container .header h1 svg {
+  margin-left: 20px;
+  transition: all 0.2s;
+}
+.container .header .activeList {
+  color: #000470;
+}
+.container .search .wrapperSearch {
+  padding: 35px;
+  border-bottom: 1px solid rgba(37, 28, 70, 0.6);
+  position: relative;
+}
+.container .search .wrapperSearch input {
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+  padding: 25px 10px;
+  border: none;
+  width: 100%;
+  font-size: 15px;
+  background-color: transparent;
+}
+.container .search .wrapperSearch input::placeholder {
+  color: #aadbe1;
+  letter-spacing: 1.3px;
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
+  padding: 0 15px;
+}
+.container .search .wrapperSearch input:focus {
+  outline: none;
+}
+.container .search .wrapperSearch svg {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  left: 5px;
+  transform: translateY(-50%);
+  color: #aadbe1;
+  margin-left: 15px;
+}
+.container .logout {
+  background-color: rgba(54, 69, 122, 0.36);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.container .logout .wrapperLogout {
+  padding: 35px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .logout .wrapperLogout p {
+  color: #aadbe1;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: bolder;
+  border-bottom: 3px solid #aadbe1;
+  cursor: pointer;
+}
+.container .logout .wrapperLogout svg {
+  font-size: 30px;
+  color: #aadbe1;
+  cursor: pointer;
+}
+.container .navDialogs {
+  padding: 5px;
+  overflow-y: scroll;
+  height: 77%;
+  transition: all 0.5s;
+}
+.container .navDialogs::-webkit-scrollbar {
+  width: 5px;
+}
+.container .navDialogs::-webkit-scrollbar-track {
+  background: #4b4949;
+  border-radius: 20px;
+}
+.container .navDialogs::-webkit-scrollbar-thumb {
+  background-color: rgba(161, 159, 159, 0.56);
+  border-radius: 20px;
+}
+.container .containerUsers {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  transition: all 0.9s;
+}
+.container .containerUsers:hover {
+  background-color: rgba(27, 27, 27, 0.38);
+  cursor: pointer;
+}
+.container .wrapperAvatar {
+  display: flex;
+  align-items: center;
+}
+.container .wrapperAvatar .name {
+  color: #d7d2d2;
+  font-size: 18px;
+}
+.container .wrapperName {
+  margin-left: 20px;
+}
+.container .wrapperName .name {
+  color: #d7d2d2;
+  font-size: 18px;
+}
+.container .wrapperName .text {
+  color: #aadbe1;
+  max-height: 100px;
+  max-width: 100%;
 }
 .container .wrapper {
   display: flex;

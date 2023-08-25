@@ -9,6 +9,7 @@ import {recipientUserReducer} from "./recipientUser/recipientUserReducer";
 import {currentChatReducer} from "./CurrentChat/currentChatReducer";
 import {currentChatTextReducer} from "./CurrentChatTexts/currentChatTextReducer";
 import {onlineMessagesReducer} from "./onlineMessages/onlineMessagesReducer";
+import {allChatsCurrentLoginUserReducer} from "./AllChatsCurrentLoginUser/allChatsCurrentLoginUserReducer";
 
 
 export default combineReducers({
@@ -21,7 +22,8 @@ export default combineReducers({
   recipientUser:recipientUserReducer,
   currentChat:currentChatReducer,
   currentChatTexts:currentChatTextReducer,
-  onlineMessages:onlineMessagesReducer
+  onlineMessages:onlineMessagesReducer,
+  allChatsCurrentUser:allChatsCurrentLoginUserReducer
 
   },
 );

@@ -55,10 +55,18 @@ export const getChoseUserDialogs = async (choseUserId, currentUserId) => {
 
 }
 
+export const getCurrentUserDialogs = async (userId) => {
+return await axios.get(`https://delicious-pizza-50bbb34e6fdd.herokuapp.com/message/${userId}`)
+}
+
 // Chat room
 
 export const getCurrentChat = async (firstId, secondId) => {
   return await axios.get(`https://delicious-pizza-50bbb34e6fdd.herokuapp.com/message/find/${firstId}/${secondId}`)
+}
+
+export const getCurrentUserChats = async (firstId, secondId) => {
+  return await axios.get(`https://delicious-pizza-50bbb34e6fdd.herokuapp.com/message/findAllChats/${firstId}/${secondId}`)
 }
 export const createChat = async (firstId, secondId) => {
   return await axios.post(`https://delicious-pizza-50bbb34e6fdd.herokuapp.com/message`, {
