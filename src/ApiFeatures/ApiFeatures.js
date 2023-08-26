@@ -68,10 +68,14 @@ export const getCurrentChat = async (firstId, secondId) => {
 export const getCurrentUserChats = async (firstId, secondId) => {
   return await axios.get(`https://delicious-pizza-50bbb34e6fdd.herokuapp.com/message/findAllChats/${firstId}/${secondId}`)
 }
-export const createChat = async (firstId, secondId) => {
+export const createChat = async (firstId, secondId , name , photo , isUserInterlocutor) => {
+  console.log(isUserInterlocutor)
   return await axios.post(`https://delicious-pizza-50bbb34e6fdd.herokuapp.com/message`, {
     firstId,
-    secondId
+    secondId,
+    name,
+    photo : photo || null,
+    idUser:isUserInterlocutor
   })
 }
 

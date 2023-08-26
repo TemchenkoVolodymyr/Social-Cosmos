@@ -40,7 +40,7 @@ const ChatContext = (props) => {
     const recipientId = currentChat?.members?.find((id) => id !== user?.id)
     socket.emit("sendMessage", {...newMessageData, recipientId})
 
-  }, [message,currentChat,currentUser,socket]);
+  }, [message,socket]);
 
 
   useEffect(() => {

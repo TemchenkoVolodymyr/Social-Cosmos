@@ -27,12 +27,12 @@ const Main = () => {
   const currentChat = useSelector((state) => state.currentChat)
   const users = useSelector((state) => state.users)
   const scroll = useRef()
-  const [openEmoji,setOpenEmoji] = useState(false)
+  const [openEmoji, setOpenEmoji] = useState(false)
   const allChats = useSelector((state) => state.allChatsCurrentUser)
 
   const sendNewMessage = async () => {
-    if (message) {
-      scroll.current?.scrollIntoView({behavior: "smooth" })
+    if (message && currentChat) {
+      scroll.current?.scrollIntoView({behavior: "smooth"})
       setCurrentMessageToSend(message)
       createCurrentChatText(currentChat._id, currentUser.id, message).then(res => {
         if (res.status === 200) {
@@ -49,7 +49,7 @@ const Main = () => {
 
   const handleEnter = (e) => {
     if (e.key === "Enter" && message) {
-      scroll.current?.scrollIntoView({behavior: "smooth" })
+      scroll.current?.scrollIntoView({behavior: "smooth"})
       setCurrentMessageToSend(message)
       createCurrentChatText(currentChat._id, currentUser.id, message).then(res => {
         if (res.status === 200) {
@@ -64,25 +64,15 @@ const Main = () => {
     }
   }
 
-const handleEmojiSelect = (emoji)  => {
+  const handleEmojiSelect = (emoji) => {
     setMessage(message + emoji.native)
-}
+  }
 
-useEffect(() => {
-
-  getCurrentUserDialogs(currentUser.id).then(res => {
-    if(res.status === 200) {
-      console.log(res.data)
-     res.data.map(chat => getCurrentChatDialog(chat._id).then(res => dispatch(allChatsCurrentLoginUserAC(res.data))))
-    }
-  })
-},[currentUser])
 
   useEffect(() => {
     console.log('scroll')
-    // scroll.current?.scrollIntoView({behavior:"smooth"})
-    scroll.current?.scrollIntoView({behavior: "smooth" })
-  },[currentMessageToSend,scroll])
+    scroll.current?.scrollIntoView({behavior: "smooth"})
+  }, [currentMessageToSend, scroll])
 
   return (
     <div className={style.container}>
@@ -105,31 +95,34 @@ useEffect(() => {
           </>
         ) : null}
       </div>
-      <div className={style.containerDialogs} >
-      {currentChatItems && currentChatItems.map(item => {
-        const date = new Date(item.createdAt)
-        const hours = date.getHours();
-        const minutes = date.getMinutes();
-        const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`
-        return ( <div ref={scroll} className={`${style.dialogsWrapper} ${item.senderId !== currentUser.id ? style.containerYou : null}`}>
-          <div className={style.wrapperAvatar}>
+      <div className={`${style.containerDialogs} ${style.noRecipientUser}`}>
+        {recipientUser ?  currentChatItems && currentChatItems.map(item => {
+          const date = new Date(item.createdAt)
+          const hours = date.getHours();
+          const minutes = date.getMinutes();
+          const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`
+          return (<div ref={scroll}
+                       className={`${style.dialogsWrapper} ${item.senderId !== currentUser.id ? style.containerYou : null}`}>
+            <div className={style.wrapperAvatar}>
 
-            { item.senderId !== currentUser.id ? <img src={ avatar  } alt={'avatar'}/>  : <p className={style.meAvatar}>{currentUser.name.charAt(0).toLocaleUpperCase()}</p> }
-            <p>{formattedTime}</p>
-          </div>
-          <div className={`${style.wrapperText} ${item.senderId !== currentUser.id ? style.you : null}` }>
-            <p>{item.text}</p>
-          </div>
-        </div>)
-      })}
+              {item.senderId !== currentUser.id ? <img src={avatar} alt={'avatar'}/> :
+                <p className={style.meAvatar}>{currentUser.name.charAt(0).toLocaleUpperCase()}</p>}
+              <p>{formattedTime}</p>
+            </div>
+            <div className={`${style.wrapperText} ${item.senderId !== currentUser.id ? style.you : null}`}>
+              <p>{item.text}</p>
+            </div>
+          </div>)
+        }) : <div className={style.noRecipient}><p>Choose some dialogs to start a conversation...</p></div>}
       </div>
       <div className={style.wrapperTextarea}>
         <div className={style.textarea}>
           <textarea onKeyDown={handleEnter} placeholder={"Type something to send"} value={message}
-          onChange={(e) => setMessage(e.target.value)}
+                    onChange={(e) => setMessage(e.target.value)}
           >
           </textarea>
-          {openEmoji &&<div className={style.picker}><Picker data={data}  onEmojiSelect={handleEmojiSelect}></Picker></div> }
+          {openEmoji &&
+            <div className={style.picker}><Picker data={data} onEmojiSelect={handleEmojiSelect}></Picker></div>}
           <BsEmojiSmile onClick={() => setOpenEmoji(!openEmoji)}></BsEmojiSmile>
           <IoSendSharp onClick={sendNewMessage}></IoSendSharp>
         </div>

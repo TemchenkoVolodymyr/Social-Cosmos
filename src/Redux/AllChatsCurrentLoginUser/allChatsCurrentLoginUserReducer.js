@@ -1,22 +1,28 @@
 import {initialStore} from "../initialState";
 
 export const SET_CHATS_CURRENT_USER = "SET_CHATS_CURRENT_USER"
-export const allChatsCurrentLoginUserReducer = (allChats = initialStore.allChatsCurrentLoginUser,action) => {
-  console.log(action.chat)
+export const WIPE_ALL_CHATS = "WIPE_ALL_CHATS"
+export const allChatsCurrentLoginUserReducer = (allChats = initialStore.allChatsCurrentLoginUser, action) => {
   switch (action.type) {
     case SET_CHATS_CURRENT_USER : {
-      // return [...allChats,action.chat]
+      if(allChats.length >= 1) {
 
-      const index = allChats?.findIndex(item => {
-        action?.chat.map(ch => item._id === ch._id)
-      })
-      console.log(index)
-      if(index === -1) {
-        return [...allChats,action.chat]
+        allChats.map(chat => {
+          const check = chat.chatId.includes(action.chats.chatId)
+          if (!check) {
+            return [...allChats, action.chats]
+          }
+        })
       }else{
-        return allChats
+        return [...allChats,action.chats]
       }
+      return allChats
     }
-    default:return allChats
+
+    case WIPE_ALL_CHATS : {
+      return allChats = []
+    }
+    default:
+      return allChats
   }
 }

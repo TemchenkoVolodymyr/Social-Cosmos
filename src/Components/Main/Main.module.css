@@ -8,6 +8,7 @@
 .container .recipient {
   display: flex;
   padding: 30px;
+  height: 40px;
   background-color: rgba(83, 75, 141, 0.41);
   align-items: center;
 }
@@ -25,7 +26,7 @@
   transition: all 0.5s;
 }
 .container .recipient .nameRecipient {
-  font-size: 19px;
+  font-size: 25px;
   letter-spacing: 1.3px;
   color: #aadbe1;
   font-weight: bolder;
@@ -152,6 +153,18 @@
   font-size: 16px;
   font-family: Sans-serif;
   font-weight: normal;
+}
+.container .noRecipientUser .noRecipient {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  height: 100%;
+}
+.container .noRecipientUser .noRecipient p {
+  color: #757575;
+  font-size: 18px;
+  letter-spacing: 1.3px;
 }
 .container .containerDialogs {
   overflow-y: scroll;

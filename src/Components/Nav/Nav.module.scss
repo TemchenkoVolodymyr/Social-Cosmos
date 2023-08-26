@@ -17,6 +17,7 @@ $headerBg: rgb(54, 47, 126);
     transition: all 0.5s;
 
     h1 {
+      padding: 10px;
       color: $mainColor;
       display: flex;
       align-items: center;
@@ -24,8 +25,9 @@ $headerBg: rgb(54, 47, 126);
       transition: all 0.9s;
 
       svg {
-        margin-left: 20px;
-        transition: all 0.2s;
+        margin-left: 10px;
+        padding-left: 90px;
+        transition: all 0.5s;
       }
     }
     .activeList{
@@ -44,13 +46,15 @@ $headerBg: rgb(54, 47, 126);
         //width: 100%;
         position: absolute;
         top: 50%;
-        left: 30px;
+        left: 50px;
         transform: translateY(-50%);
-        padding: 25px 10px;
+        padding: 25px 0;
         border: none;
         width: 100%;
-        font-size: 15px;
+        font-size: 17px;
         background-color: transparent;
+        letter-spacing: 1.3px;
+        color: $mainColor;
 
         &::placeholder {
           color: $mainColor;
@@ -133,6 +137,7 @@ $headerBg: rgb(54, 47, 126);
     justify-content: space-between;
     padding: 15px;
     transition: all 0.9s;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     &:hover {
       background-color: rgba(27, 27, 27, 0.38);
       cursor: pointer;
@@ -142,9 +147,21 @@ $headerBg: rgb(54, 47, 126);
   .wrapperAvatar {
     display: flex;
     align-items: center;
+    width: 100%;
     .name{
       color: #d7d2d2;
       font-size: 18px;
+      padding: 10px;
+    }
+    .containerText{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-left: 30px;
+    }
+    .wrapperAva{
+      display: flex;
+
     }
   }
 
@@ -162,7 +179,29 @@ $headerBg: rgb(54, 47, 126);
       max-width: 100%;
     }
   }
-
+  .wrapperTime{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+.wrapperText{
+  width: 100%;
+.message{
+  color: rgba(166, 161, 161, 0.59);
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  padding: 10px;
+  overflow: hidden;
+}
+}
+  .time{
+    display: flex;
+    p{
+      color: rgba(164, 159, 159, 0.62);
+      margin-right: 5px;
+    }
+  }
   .wrapper {
     display: flex;
     justify-content: space-between;
