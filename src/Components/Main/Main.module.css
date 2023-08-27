@@ -9,8 +9,9 @@
   display: flex;
   padding: 30px;
   height: 40px;
-  background-color: rgba(83, 75, 141, 0.41);
+  background-color: rgba(83, 75, 141, 0.01);
   align-items: center;
+  box-shadow: rgb(108, 179, 241) 0 20px 50px -10px;
 }
 @media (max-width: 767px) {
   .container .recipient {
@@ -137,6 +138,8 @@
   background: rgba(253, 253, 253, 0.47);
   padding: 10px;
   color: #1b1b1b;
+  margin-bottom: 5px;
+  border-radius: 5px;
 }
 @media (max-width: 767px) {
   .container .dialogsWrapper .wrapperAvatar .meAvatar {
@@ -199,7 +202,6 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: #ffffff;
 }
 @media (max-width: 767px) {
   .container .wrapperTextarea {
@@ -207,7 +209,7 @@
   }
 }
 .container .wrapperTextarea textarea {
-  padding: 30px;
+  padding: 20px;
   resize: none;
   outline: none;
   -moz-appearance: none;
@@ -235,6 +237,7 @@
 .container .wrapperTextarea .textarea {
   display: flex;
   align-items: center;
+  box-shadow: rgb(243, 243, 245) 0 20px 50px -10px;
 }
 .container .wrapperTextarea .textarea svg {
   font-size: 50px;
@@ -254,9 +257,22 @@
   }
 }
 .container .wrapperTextarea .textarea textarea {
-  font-size: 16px;
+  font-size: 18px;
   font-family: Sans-serif;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 60px;
+  letter-spacing: 2.2px;
+  margin-left: 10px;
+  color: #89d1f5;
+  box-shadow: rgb(0, 0, 0) 0px -15px 48px 7px;
+}
+.container .wrapperTextarea .textarea textarea::placeholder {
+  color: rgba(253, 253, 253, 0.8);
+  font-size: 15px;
   font-weight: normal;
+}
+.container .wrapperTextarea .textarea textarea:focus::placeholder {
+  opacity: 0;
 }
 .container .noRecipientUser .noRecipient {
   display: flex;
@@ -266,7 +282,7 @@
   height: 100%;
 }
 .container .noRecipientUser .noRecipient p {
-  color: #757575;
+  color: #707b9f;
   font-size: 18px;
   letter-spacing: 1.3px;
 }
@@ -280,14 +296,19 @@
   height: 85%;
 }
 .container .containerDialogs::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
+}
+@media (max-width: 767px) {
+  .container .containerDialogs::-webkit-scrollbar {
+    width: 0;
+  }
 }
 .container .containerDialogs::-webkit-scrollbar-track {
-  background: #414141;
+  background: #04071f;
   border-radius: 20px;
 }
 .container .containerDialogs::-webkit-scrollbar-thumb {
-  background-color: rgba(173, 172, 172, 0.56);
+  background-color: rgba(141, 140, 140, 0.56);
   border-radius: 20px;
 }
 
@@ -416,6 +437,10 @@
 }
 .active .menu {
   top: 0;
+}
+
+.header {
+  margin-bottom: 20px;
 }
 
 /*# sourceMappingURL=Main.module.css.map */

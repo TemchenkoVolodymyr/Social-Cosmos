@@ -9,5 +9,44 @@
   margin: 0 auto;
   justify-content: center;
 }
+.container .header {
+  display: flex;
+  margin-bottom: 5%;
+}
+.container .header h1 {
+  margin: 0 15px;
+  font-size: 45px;
+}
+.container .header .onlineItem {
+  color: #8a38de;
+  background-color: rgba(65, 9, 93, 0.32);
+  border-radius: 15px;
+  padding: 5px;
+  animation: slide-in-left 3s ease-out;
+}
+.container .header .chatItem {
+  color: #269ed0;
+  background-color: rgba(67, 159, 189, 0.32);
+  animation: slide-in-right 3s ease-out;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
 
 /*# sourceMappingURL=Auth.module.css.map */

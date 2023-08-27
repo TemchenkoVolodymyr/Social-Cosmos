@@ -6,19 +6,20 @@
   display: flex;
   justify-content: space-between;
   height: 100vh;
-  background-color: #ddebfa;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 nav {
-  width: 20%;
-  background-color: rgba(30, 22, 61, 0.85);
-  transition: all 2s ease-in-out;
+  width: 30%;
+  background-color: rgba(30, 22, 61, 0.52);
+  transition: all 1s ease-in-out;
 }
 @media (max-width: 767px) {
   nav {
-    width: 50%;
+    width: 60%;
     position: absolute;
-    top: -100%;
+    left: -100%;
     opacity: 0;
   }
 }
@@ -33,14 +34,20 @@ nav .wrapperNav {
 
 .sidebar {
   position: relative;
-  top: 0;
+  left: 0;
   opacity: 1;
-  transition: all 2s ease-in-out;
+  transition: all 1s ease-in-out;
+  width: 30%;
+}
+@media (max-width: 767px) {
+  .sidebar {
+    width: 70%;
+  }
 }
 
 main {
   width: 100%;
-  background-color: #ddebfa;
+  background-size: cover;
 }
 main .wrapperMain {
   height: 100%;

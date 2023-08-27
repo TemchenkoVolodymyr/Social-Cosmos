@@ -8,4 +8,51 @@
   align-items: center;
   margin: 0 auto;
   justify-content: center;
+  @media (max-width: 767px) {
+
+  }
+
+  .header {
+    display: flex;
+    margin-bottom: 5%;
+
+    h1 {
+      margin: 0 15px;
+      font-size:45px;
+    }
+
+    .onlineItem {
+      color: #8a38de;
+      background-color: rgba(65, 9, 93, 0.32);
+      border-radius: 15px;
+      padding: 5px;
+      animation: slide-in-left 3s ease-out;
+    }
+
+    .chatItem {
+      color: #269ed0;
+      background-color: rgba(67, 159, 189, 0.32);
+      animation: slide-in-right 3s ease-out;
+      border-radius: 15px;
+      padding: 5px;
+    }
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }

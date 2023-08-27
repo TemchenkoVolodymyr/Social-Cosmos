@@ -8,7 +8,7 @@ import {editUser, getAllUsers, login, signup} from "../../ApiFeatures/ApiFeature
 import LoginForm from "./LoginForm/LoginForm";
 import bgForm from '../../assets/form/pexels-brady-knoll-3744162.jpg'
 import {changeOnlineStatus, currentUserAC} from "../../Redux/CurrentUser/currentUserAC";
-
+import bgForm1 from '../../assets/login.png'
 
 const Auth = () => {
 
@@ -96,7 +96,11 @@ const Auth = () => {
 
   }
   return (
-    <div className={style.container} style={{backgroundImage: `url(${bgForm})`}}>
+    <div className={style.container} style={{backgroundImage: `url(${bgForm1})`}}>
+      <div className={style.header}>
+        <h1 className={style.onlineItem}>Online</h1>
+        <h1 className={style.chatItem}>Chat</h1>
+      </div>
       {loginOrSignup === 'login' ?
         <LoginForm errorLogin={errorLogin} changeForm={setLoginOrSignup} handleSubmit={loginHandler}></LoginForm> :
         <SignupForm errorSignup={errorSignUp} changeForm={setLoginOrSignup} handleSubmit={signupHandler}></SignupForm>}

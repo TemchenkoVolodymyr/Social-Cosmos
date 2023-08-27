@@ -11,6 +11,8 @@ import Header from "../Components/Header/Header";
 import {Beforeunload} from "react-beforeunload";
 import Main from "../Components/Main/Main";
 import {messagesAC} from "../Redux/Messages/messagesAC";
+import bgMessage from '../assets/bgDialogs.png'
+import test from '../assets/test.png'
 
 const Layout = () => {
 
@@ -40,13 +42,13 @@ const Layout = () => {
     <>
       <Beforeunload onBeforeunload={() => editUser(false, currentUser.id)}>
 
-        <div className={style.wrapper}>
+        <div className={style.wrapper} style={{backgroundImage:`url(${test})`}}>
           <nav className={sidebarStatus ? style.sidebar : null}>
             <div className={style.wrapperNav}>
               <Nav/>
             </div>
           </nav>
-          <main>
+          <main >
             <div className={style.wrapperMain}>
               <Outlet></Outlet>
 

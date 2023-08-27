@@ -3,7 +3,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: rgba(44, 42, 42, 0.48);
   padding: 0 50px;
   border-radius: 20px;
   box-shadow: rgba(122, 8, 189, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(86, 13, 134, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -27,10 +27,11 @@ form div input {
   padding: 25px;
   border-radius: 20px;
   border: none;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 14px;
+  box-shadow: rgba(58, 18, 117, 0.78) 0px 10px 54px;
   font-size: 20px;
   font-weight: bolder;
-  color: black;
+  background-color: rgba(45, 43, 43, 0.39);
+  color: #4895ab;
 }
 @media (max-width: 767px) {
   form div input {
@@ -38,6 +39,22 @@ form div input {
     padding: 15px;
     font-size: 15px;
   }
+}
+@media (max-width: 767px) and (max-width: 767px) {
+  form div input {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+form div input::placeholder {
+  color: #d9d6d9;
+}
+form div input:focus {
+  border: 1px solid rgba(107, 45, 178, 0.65);
+  outline: none;
+}
+form div input:focus::placeholder {
+  opacity: 0;
 }
 form button {
   padding: 20px 70px;
@@ -52,7 +69,7 @@ form button {
 @media (max-width: 767px) {
   form button {
     padding: 10px 20px;
-    font-size: 15px;
+    font-size: 13px;
     margin: 20px 0;
   }
 }
@@ -61,6 +78,7 @@ form h1 {
   font-style: oblique;
   margin: 70px 0;
   color: #880dda;
+  animation: slide-in-top 2s ease-out;
 }
 @media (max-width: 767px) {
   form h1 {
@@ -68,19 +86,29 @@ form h1 {
     margin: 30px 0;
   }
 }
+form h1 span {
+  color: rgba(31, 209, 249, 0.84);
+}
+form .email {
+  animation: slide-in-left 2s ease-out;
+}
+form .password {
+  animation: slide-in-right 2s ease-out;
+}
 
 .btnsWrapper {
   margin-top: 50px;
 }
 @media (max-width: 767px) {
   .btnsWrapper {
-    margin-top: 20px;
+    margin-top: 10px;
   }
 }
 .btnsWrapper button {
   margin-left: 10px;
   cursor: pointer;
   transition: all 0.9s;
+  animation: slide-in-right 3s ease-out;
 }
 .btnsWrapper button:hover {
   background-color: #2d0346;
@@ -88,6 +116,7 @@ form h1 {
 
 .active {
   background-color: #2d0346;
+  animation: slide-in-left 3s ease-out !important;
 }
 
 .errorMessage {
@@ -97,6 +126,31 @@ form h1 {
 @media (max-width: 767px) {
   .errorMessage {
     font-size: 12px;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slide-in-top {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
   }
 }
 

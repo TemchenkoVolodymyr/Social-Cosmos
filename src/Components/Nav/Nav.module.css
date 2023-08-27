@@ -6,7 +6,7 @@
   letter-spacing: 1.3px;
 }
 .container .header {
-  background-color: rgba(54, 69, 122, 0.36);
+  background-color: rgba(94, 152, 201, 0.31);
   padding: 20px;
   transition: all 0.5s;
 }
@@ -17,7 +17,7 @@
 }
 .container .header h1 {
   padding: 10px;
-  color: #aadbe1;
+  color: #10c6e7;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -54,6 +54,7 @@
   }
 }
 .container .search .wrapperSearch {
+  background-color: rgba(12, 12, 12, 0.99);
   padding: 35px;
   border-bottom: 1px solid rgba(37, 28, 70, 0.6);
   position: relative;
@@ -69,10 +70,10 @@
   font-size: 17px;
   background-color: transparent;
   letter-spacing: 1.3px;
-  color: #aadbe1;
+  color: #10c6e7;
 }
 .container .search .wrapperSearch input::placeholder {
-  color: #aadbe1;
+  color: #10c6e7;
   letter-spacing: 1.3px;
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
   padding: 0 15px;
@@ -80,13 +81,16 @@
 .container .search .wrapperSearch input:focus {
   outline: none;
 }
+.container .search .wrapperSearch input:focus::placeholder {
+  opacity: 0;
+}
 .container .search .wrapperSearch svg {
   position: absolute;
   top: 50%;
   z-index: 2;
   left: 5px;
   transform: translateY(-50%);
-  color: #aadbe1;
+  color: #10c6e7;
   margin-left: 15px;
 }
 @media (max-width: 767px) {
@@ -107,11 +111,11 @@
   align-items: center;
 }
 .container .logout .wrapperLogout p {
-  color: #aadbe1;
+  color: #10c6e7;
   font-size: 20px;
   letter-spacing: 2px;
   font-weight: bolder;
-  border-bottom: 3px solid #aadbe1;
+  border-bottom: 3px solid #10c6e7;
   cursor: pointer;
 }
 @media (max-width: 767px) {
@@ -122,8 +126,10 @@
 }
 .container .logout .wrapperLogout svg {
   font-size: 30px;
-  color: #aadbe1;
+  color: #cc0909;
   cursor: pointer;
+  box-shadow: rgb(207, 14, 14) -3px -5px 34px 6px;
+  background: #781e1e;
 }
 @media (max-width: 767px) {
   .container .logout .wrapperLogout svg {
@@ -131,10 +137,15 @@
   }
 }
 .container .navDialogs {
-  padding: 5px;
+  padding: 15px;
   overflow-y: scroll;
-  height: 77%;
+  height: 72%;
   transition: all 0.5s;
+}
+@media (max-width: 767px) {
+  .container .navDialogs {
+    height: 61%;
+  }
 }
 .container .navDialogs::-webkit-scrollbar {
   width: 5px;
@@ -145,32 +156,32 @@
   }
 }
 .container .navDialogs::-webkit-scrollbar-track {
-  background: #4b4949;
+  background: rgba(75, 136, 136, 0.27);
   border-radius: 20px;
 }
 .container .navDialogs::-webkit-scrollbar-thumb {
-  background-color: rgba(161, 159, 159, 0.56);
+  background-color: rgba(178, 182, 182, 0.56);
   border-radius: 20px;
 }
 .container .containerUsers {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px;
   transition: all 0.9s;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(251, 250, 250, 0.15);
+  border-radius: 5px;
 }
 .container .containerUsers:hover {
-  background-color: rgba(27, 27, 27, 0.38);
+  background-color: rgba(19, 81, 112, 0.38);
   cursor: pointer;
 }
 @media (max-width: 767px) {
   .container .containerUsers {
-    padding: 5px;
+    padding: 10px 0;
+    width: 100%;
   }
 }
 .container .wrapperAvatar {
-  display: flex;
   align-items: center;
   width: 100%;
 }
@@ -179,14 +190,37 @@
   font-size: 18px;
   padding: 10px;
 }
+@media (min-width: 768px) {
+  .container .wrapperAvatar .nameComp {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .container .wrapperAvatar {
+    display: block;
+  }
+  .container .wrapperAvatar .namePhone {
+    display: none;
+  }
+}
 .container .wrapperAvatar .containerText {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-left: 30px;
+}
+@media (max-width: 767px) {
+  .container .wrapperAvatar .containerText {
+    margin-left: 0;
+  }
 }
 .container .wrapperAvatar .wrapperAva {
   display: flex;
+  width: 100%;
+}
+.container .wrapperAvatar .wrapperAva .name {
+  margin-left: 15px;
+  font-weight: bold;
+  font-size: 16px;
 }
 @media (max-width: 767px) {
   .container .wrapperAvatar .name {
@@ -205,25 +239,41 @@
   font-size: 18px;
 }
 .container .wrapperName .text {
-  color: #aadbe1;
+  color: #10c6e7;
   max-height: 100px;
   max-width: 100%;
 }
 .container .wrapperTime {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+}
+@media (max-width: 767px) {
+  .container .wrapperTime {
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 .container .wrapperText {
   width: 100%;
 }
+@media (max-width: 767px) {
+  .container .wrapperText {
+    display: flex;
+    align-items: center;
+  }
+}
 .container .wrapperText .message {
-  color: rgba(166, 161, 161, 0.59);
+  color: rgba(166, 161, 161, 0.87);
   font-size: 16px;
   letter-spacing: 2px;
   font-weight: bold;
   padding: 10px;
   overflow: hidden;
+}
+@media (max-width: 767px) {
+  .container .wrapperText .message {
+    margin-left: 20px;
+    width: 30px;
+  }
 }
 .container .wrapperText .wrapperInfo {
   display: flex;
@@ -234,8 +284,13 @@
   display: flex;
 }
 .container .time p {
-  color: rgba(164, 159, 159, 0.62);
+  color: rgb(164, 159, 159);
   margin-right: 5px;
+}
+@media (max-width: 767px) {
+  .container .time p {
+    font-size: 13px;
+  }
 }
 .container .wrapper {
   display: flex;

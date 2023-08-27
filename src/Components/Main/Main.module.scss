@@ -12,8 +12,9 @@ $phoneSize: 12px;
     display: flex;
     padding: 30px;
     height: 40px;
-    background-color: rgba(83, 75, 141, 0.41);
+    background-color: rgba(83, 75, 141, 0.01);
     align-items: center;
+    box-shadow: rgb(108 179 241) 0 20px 50px -10px;
     @media (max-width: 767px) {
       padding: 15px;
       height: 0;
@@ -141,6 +142,8 @@ $phoneSize: 12px;
         background: rgba(253, 253, 253, 0.47);
         padding: 10px;
         color: #1b1b1b;
+        margin-bottom: 5px;
+        border-radius: 5px;
         @media (max-width: 767px) {
           padding: 5px;
           font-size: 12px;
@@ -166,6 +169,7 @@ $phoneSize: 12px;
 
     &::-webkit-scrollbar {
       width: 8px;
+
 
     }
 
@@ -213,7 +217,7 @@ $phoneSize: 12px;
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: #ffffff;
+    //background-color: #ffffff;
     //padding: 16px 0 ;
     //height: 90px;
     @media (max-width: 767px) {
@@ -221,7 +225,7 @@ $phoneSize: 12px;
     }
     //box-sizing: border-box;
     textarea {
-      padding: 30px;
+      padding: 20px;
       resize: none;
       outline: none;
       -moz-appearance: none;
@@ -249,7 +253,7 @@ $phoneSize: 12px;
     .textarea {
       display: flex;
       align-items: center;
-
+      box-shadow: rgb(243, 243, 245) 0 20px 50px -10px;
       svg {
         font-size: 50px;
         color: $mainColor;
@@ -267,43 +271,27 @@ $phoneSize: 12px;
       }
 
       textarea {
-        font-size: 16px;
+        font-size: 18px;
         font-family: Sans-serif;
-        font-weight: normal;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 60px;
+        letter-spacing: 2.2px;
+        margin-left: 10px;
+
+        color: #89d1f5;
+        box-shadow: rgb(0 0 0) 0px -15px 48px 7px;
+        &::placeholder {
+          color: rgba(253, 253, 253, 0.8);
+          font-size: 15px;
+          font-weight: normal;
+        }
+        &:focus::placeholder {
+          opacity: 0;
+        }
       }
 
 
     }
-
-
-    //height: 8%;
-    //position: absolute;
-    //bottom: 5px;
-    //width: 79.5%;
-    //
-    //textarea {
-    //  resize: none;
-    //  outline: none;
-    //  -moz-appearance: none;
-    //  overflow: auto;
-    //  line-height: normal;
-    //  width: 100%;
-    //  height: 100%;
-    //  padding: 5px;
-    //  border: 1px solid rgba(124, 95, 8, 0.44);
-    //  border-radius: 5px;
-    //  font-size: 16px;
-    //
-    //  letter-spacing: 2px;
-    //  color: #f5f5f5;
-    //  background-color: rgba(0, 0, 0, 0.55);
-    //  box-sizing: border-box;
-    //
-    //}
-    //
-    //@media (max-width: 767px) {
-    //  width: 100%;
-    //}
   }
 
   .noRecipientUser {
@@ -315,7 +303,7 @@ $phoneSize: 12px;
       height: 100%;
 
       p {
-        color: #757575;
+        color: #707b9f;
         font-size: 18px;
         letter-spacing: 1.3px;
         @media (max-width: 767px) {
@@ -330,16 +318,19 @@ $phoneSize: 12px;
     height: 85%;
 
     &::-webkit-scrollbar {
-      width: 8px;
+      width: 12px;
+      @media (max-width: 767px) {
+        width: 0;
+      }
     }
 
     &::-webkit-scrollbar-track {
-      background: #414141;
+      background: #04071f;
       border-radius: 20px;
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: rgba(173, 172, 172, 0.56);
+      background-color: rgba(141, 140, 140, 0.56);
       border-radius: 20px;
       //border: 3px solid orange
     }
@@ -457,8 +448,6 @@ $phoneSize: 12px;
   bottom: 0;
   right: 215px;
   @media (max-width: 767px) {
-    //right: 200px;
-
   }
 }
 .smile{
@@ -482,12 +471,10 @@ $phoneSize: 12px;
   .menu{
     top:0;
   }
-  //@media (max-width: 767px){
-  //  &:before {
-  //    top: 10px;
-  //  }
-  //  &:after{
-  //    bottom: 10px;
-  //  }
-  //}
+}
+.header{
+  margin-bottom: 20px;
+  h1{
+
+  }
 }

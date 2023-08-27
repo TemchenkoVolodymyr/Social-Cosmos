@@ -14,12 +14,12 @@ let LoginForm = (props) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <h1>Sign In</h1>
-        <div>
-          <Field name="email" component="input" type="email" placeholder={'Email'} required/>
+        <h1><span>Sign</span> In</h1>
+        <div className={style.email}>
+          <Field  name="email" component="input" type="email" placeholder={'email'} required/>
         </div>
-        <div>
-          <Field name="password" component="input" type="password" placeholder={'Password'} required/>
+        <div className={style.password}>
+          <Field name="password" component="input" type="password" placeholder={'password'} required/>
         </div>
         <div className={style.btnsWrapper}>
           <button onKeyDown={handleEnter} type="submit" className={style.active}>Sign in</button>

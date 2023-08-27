@@ -13,7 +13,7 @@ let SignupForm = (props) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <h1>Sign Up</h1>
+        <h1><span>Sign</span> Up</h1>
         <div>
           <Field name="name" component="input" type="text" placeholder={'Name'} required/>
         </div>

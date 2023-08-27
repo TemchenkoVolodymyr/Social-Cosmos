@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import style from './Main.module.scss'
 import {IoSendSharp} from "react-icons/io5";
 import {
   createCurrentChatText,
-  getCurrentChatDialog, getCurrentUserDialogs,
+  getCurrentChatDialog,
 } from "../../ApiFeatures/ApiFeatures";
 import {useDispatch, useSelector} from "react-redux";
 import ChatContext from "./ChatContext";
@@ -13,8 +13,6 @@ import avatar from '../../assets/default.png'
 import {BsEmojiSmile} from "react-icons/bs";
 import Picker from '@emoji-mart/react'
 import data from '@emoji-mart/data'
-import {allChatsCurrentLoginUserAC} from "../../Redux/AllChatsCurrentLoginUser/allChatsCurrentLoginUserAC";
-import MyContext from "../../ContextAPI/MyContext";
 import {sidebarAC} from "../../Redux/Sidebar/sidebarAC";
 
 
@@ -27,13 +25,12 @@ const Main = () => {
   const currentChatItems = useSelector((state) => state.currentChatTexts)
   const onlineUsers = useSelector((state) => state.onlineUsers);
   const currentChat = useSelector((state) => state.currentChat)
-  const users = useSelector((state) => state.users)
   const scroll = useRef()
   const [openEmoji, setOpenEmoji] = useState(false)
-  const allChats = useSelector((state) => state.allChatsCurrentUser)
+
 
   const sidebarStatus = useSelector((state) => state.sidebar)
-console.log(currentChat)
+
   const sendNewMessage = async () => {
     if (message && currentChat) {
       scroll.current?.scrollIntoView({behavior: "smooth"})
@@ -74,15 +71,12 @@ console.log(currentChat)
 
 
   useEffect(() => {
-    console.log('scroll')
     scroll.current?.scrollIntoView({behavior: "smooth"})
   }, [currentMessageToSend, scroll])
 
-  const changeSidebar = () =>{
+  const changeSidebar = () => {
     dispatch(sidebarAC())
   }
-
-  console.log(recipientUser)
 
   return (
     <div className={style.container}>
@@ -93,8 +87,9 @@ console.log(currentChat)
         </div>
         {recipientUser ? (
           <>
-            <p className={style.nameRecipient}>{currentChat?.interlocutor[0] === currentUser.name ? currentChat?.interlocutor[3] : currentChat?.interlocutor[0]}</p>
-            {onlineUsers?.find((online) => online.userId === recipientUser._id) ? (
+            <p
+              className={style.nameRecipient}>{currentChat?.interlocutor[0] === currentUser.name ? currentChat?.interlocutor[3] : currentChat?.interlocutor[0]}</p>
+            {onlineUsers?.find((online) => online.userId === recipientUser._id && online.userId === currentUser._id) ? (
               <p className={style.status}>
                 <RiRadioButtonLine fontSize={15} color={"green"}></RiRadioButtonLine>
 
@@ -109,7 +104,7 @@ console.log(currentChat)
         ) : null}
       </div>
       <div className={`${style.containerDialogs} ${style.noRecipientUser}`}>
-        {recipientUser ?  currentChatItems && currentChatItems.map(item => {
+        {recipientUser ? currentChatItems && currentChatItems.map(item => {
           const date = new Date(item.createdAt)
           const hours = date.getHours();
           const minutes = date.getMinutes();
@@ -126,16 +121,17 @@ console.log(currentChat)
               <p>{item.text}</p>
             </div>
           </div>)
-        }) : <div className={style.noRecipient}><p>Choose some dialogs to start a conversation...</p></div>}
+        }) : <div className={style.noRecipient}>
+          <p> {sidebarStatus ? "Choose dialogs..." : "Choose some dialogs to start a conversation..."}</p></div>}
       </div>
       <div className={style.wrapperTextarea}>
         <div className={style.textarea}>
-          <textarea onKeyDown={handleEnter} placeholder={"Type something to send"} value={message}
+          <textarea onKeyDown={handleEnter} placeholder={"Write message ...."} value={message}
                     onChange={(e) => setMessage(e.target.value)}
           >
           </textarea>
           {openEmoji &&
-            <div className={style.picker}><Picker  emoji={{perline:2 }} data={data} onEmojiSelect={handleEmojiSelect}></Picker></div>}
+            <div className={style.picker}><Picker data={data} onEmojiSelect={handleEmojiSelect}></Picker></div>}
           <BsEmojiSmile className={style.smile} onClick={() => setOpenEmoji(!openEmoji)}></BsEmojiSmile>
           <IoSendSharp onClick={sendNewMessage}></IoSendSharp>
         </div>

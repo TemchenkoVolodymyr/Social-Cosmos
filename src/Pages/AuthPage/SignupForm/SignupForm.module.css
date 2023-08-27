@@ -1,6 +1,11 @@
 .btnsWrapper {
   margin-top: 50px;
 }
+@media (max-width: 767px) {
+  .btnsWrapper {
+    margin-top: 20px;
+  }
+}
 .btnsWrapper button {
   margin-left: 10px;
   cursor: pointer;
