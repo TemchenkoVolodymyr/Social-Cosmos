@@ -26,6 +26,8 @@ import {
   allChatsCurrentLoginUserAC,
   wipeAllChats
 } from "../../Redux/AllChatsCurrentLoginUser/allChatsCurrentLoginUserAC";
+import {FiUsers} from "react-icons/fi";
+import {BsFillChatLeftDotsFill} from "react-icons/bs";
 
 
 const Nav = () => {
@@ -54,6 +56,8 @@ const Nav = () => {
 
   const [foundMessage, setNewFoundMessage] = useState(null)
 
+  const sidebarStatus = useSelector((state) => state.sidebar)
+
   useEffect(() => {
     dispatch(deleteMe(currentUser.id))
   }, [])
@@ -61,7 +65,6 @@ const Nav = () => {
   useEffect(() => {
     getCurrentUserChats(currentUser?.id, recipientUser?._id).then(res => {
       if (res.status === 200) {
-        console.log(res.data)
         getCurrentChatDialog(res.data._id).then(res => console.log(res))
       }
     })
@@ -77,13 +80,15 @@ const Nav = () => {
   }
 
   const handleNewRecipientUser = (dataUser) => {
-
+    console.log(dataUser)
     dispatch(recipientUserAC(dataUser))
-    createChat(dataUser._id, currentUser.id, dataUser.name, dataUser?.photo, dataUser._id).then(res => {
+
+    createChat(dataUser._id, currentUser.id, dataUser.name, dataUser?.photo, dataUser._id, currentUser.name ).then(res => {
 
       if (res.status === 200) {
         getCurrentChat(dataUser._id, currentUser.id).then(res => {
           if (res.status === 200) {
+            console.log(res)
             dispatch(currentChatAC(res.data))
 
             getCurrentChatDialog(res.data._id).then(res => {
@@ -117,19 +122,23 @@ const Nav = () => {
     setShowList('chat')
     getCurrentUserDialogs(currentUser.id).then(respons => {
       if (respons.status === 200) {
+
         respons.data.map(chat => {
+
           getCurrentChatDialog(chat._id).then(res => {
             const dataChat = {
               chatId: chat._id,
-              name: chat.interlocutor[0],
+              name: chat.interlocutor[3],
               _id: chat.interlocutor[2],
               photo: chat.interlocutor[1],
               text: res.data[res.data.length - 1]?.text,
-              date: res.data[res.data.length - 1]?.createdAt
+              date: res.data[res.data.length - 1]?.createdAt,
+              anotherPerson: chat.interlocutor[0]
             }
-            if (chat.members[1] === currentUser.id) {
+            // if (chat.interlocutor[2] !== chat.members[1]) {
               dispatch(allChatsCurrentLoginUserAC(dataChat))
-            }
+            // }
+
 
           })
         })
@@ -140,15 +149,16 @@ const Nav = () => {
   }
 
 
+
+
+ console.log(allChats)
   return (
     <div className={style.container}>
       <div className={style.header}>
         <h1 className={showList === 'chat' ? style.activeList : null} onClick={showCurrentUserMessages}>
-          Chats {showList === 'chat' ?
-          <HiOutlineChevronDoubleDown fontSize={30}></HiOutlineChevronDoubleDown> : null}</h1>
+          <BsFillChatLeftDotsFill></BsFillChatLeftDotsFill>Chats</h1>
         <h1 className={showList === 'users' ? style.activeList : null}
-            onClick={() => setShowList('users')}>Users {showList === 'users' ?
-          <HiOutlineChevronDoubleDown fontSize={30}></HiOutlineChevronDoubleDown> : null}</h1>
+            onClick={() => setShowList('users')}><FiUsers fontSize={20}></FiUsers>Users</h1>
       </div>
 
 
@@ -174,18 +184,18 @@ const Nav = () => {
                 <RiRadioButtonLine fontSize={20} color={'green'}></RiRadioButtonLine> :
                 <RiRadioButtonLine fontSize={20} color={'red'}></RiRadioButtonLine>}
             </div>) :
-            users?.map(user => <div className={style.containerUsers} onClick={() => handleNewRecipientUser(user)}>
-              <div className={style.wrapperAvatar}>
-                <img alt={'avatar'} src={avatar}></img>
-                <p className={style.name}>{user.name}</p>
-              </div>
-              <div className={style.wrapperName}>
-                {/*<p className={style.name}>{user.name}</p>*/}
-              </div>
-              {onlineUsers?.find(onlineU => onlineU.userId === user._id) ?
-                <RiRadioButtonLine fontSize={20} color={'green'}></RiRadioButtonLine> :
-                <RiRadioButtonLine fontSize={20} color={'red'}></RiRadioButtonLine>}
-            </div>)
+            users?.map(user => user._id !== currentUser.id ?
+              <div className={style.containerUsers} onClick={() => handleNewRecipientUser(user)}>
+                <div className={style.wrapperAvatar}>
+                  <img alt={'avatar'} src={avatar}></img>
+                  <p className={style.name}>{user.name}</p>
+                </div>
+                <div className={style.wrapperName}>
+                </div>
+                {onlineUsers?.find(onlineU => onlineU.userId === user._id) ?
+                  <RiRadioButtonLine fontSize={20} color={'green'}></RiRadioButtonLine> :
+                  <RiRadioButtonLine fontSize={20} color={'red'}></RiRadioButtonLine>}
+              </div> : null)
           : <div>
             {foundMessage ? foundMessage.map(item => <div className={style.containerUsers}
                                                           onClick={() => handleNewRecipientUser(item)}>
@@ -224,13 +234,15 @@ const Nav = () => {
                 </div>
                 <div className={style.containerText}>
                   <div className={style.wrapperText}>
-                    <p className={style.name}>{chat.name}</p>
+                    <div className={style.wrapperInfo}>
+                      <p className={style.name}>{chat._id === currentUser.id ? chat.name : chat.anotherPerson}</p>
+                      <div className={style.time}>
+                        <p>{new Date(chat.date).getHours() < 10 ? "0" + new Date(chat.date).getHours() : new Date(chat.date).getHours()} :</p>
+                        <p> {new Date(chat.date).getMinutes() < 10 ? "0" + new Date(chat.date).getMinutes() : new Date(chat.date).getMinutes()}</p>
+                      </div>
+                    </div>
                     <div className={style.wrapperTime}>
                       <p className={style.message}>{chat.text}</p>
-                      <div className={style.time}>
-                        <p>{new Date(chat.date).getHours()} :</p>
-                        <p> {new Date(chat.date).getMinutes()}</p>
-                      </div>
                     </div>
                   </div>
                 </div>

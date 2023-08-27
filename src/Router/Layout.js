@@ -18,9 +18,12 @@ const Layout = () => {
   const currentUser = useSelector((state) => state.user);
   const dispatch = useDispatch()
 
+  const sidebarStatus = useSelector((state) => state.sidebar)
+
   useEffect(() => {
     getAllUsers().then(res => {
-      const newArray = res.data.data.result.filter(item => item._id !== currentUser.id)
+
+      const newArray = res.data.data.result.filter(item => item?._id !== currentUser?.id)
       dispatch(allUsersAC(newArray))
     })
     // getALlMessages().then(res => {
@@ -28,27 +31,29 @@ const Layout = () => {
     //     dispatch(messagesAC(res.data.data.result))
     //   }
     // })
-  },[])
+  }, [isAuth,currentUser])
 
   if (!isAuth) {
     return <Auth></Auth>
   }
   return (
     <>
-      <Beforeunload onBeforeunload={() =>editUser(false,currentUser.id)}>
+      <Beforeunload onBeforeunload={() => editUser(false, currentUser.id)}>
 
         <div className={style.wrapper}>
-            <nav>
-              <div className={style.wrapperNav}>
-                <Nav/>
-              </div>
-            </nav>
-            <main>
-              <div className={style.wrapperMain}>
+          <nav className={sidebarStatus ? style.sidebar : null}>
+            <div className={style.wrapperNav}>
+              <Nav/>
+            </div>
+          </nav>
+          <main>
+            <div className={style.wrapperMain}>
               <Outlet></Outlet>
-              <Main/>
-              </div>
-            </main>
+
+                <Main/>
+
+            </div>
+          </main>
 
         </div>
       </Beforeunload>

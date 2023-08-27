@@ -8,5 +8,6 @@ export const initialStore = {
   currentChat:null,
   currentChatDialogs:null,
   newOnlineMessage:[],
-  allChatsCurrentLoginUser:[]
+  allChatsCurrentLoginUser:[],
+  sidebar:false
 };

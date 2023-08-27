@@ -6,20 +6,40 @@
   display: flex;
   justify-content: space-between;
   height: 100vh;
+  background-color: #ddebfa;
 }
 
 
 nav {
-  width: 25%;
+  width: 20%;
   background-color: rgba(30, 22, 61, 0.85);
+  transition: all 2s ease-in-out;
+
+@media (max-width: 767px) {
+    width: 50%;
+    //display: none;
+  position: absolute;
+  top:-100%;
+  opacity:0;
+  }
 
   .wrapperNav {
     height: 100%;
   }
 
-
+  @media (max-width: 767px) {
+    //display: none;
+    background-color: rgba(72, 72, 119, 0.77);
+  }
 }
-
+.sidebar{
+  //display: block;
+  position:relative;
+  top:0;
+  opacity:1;
+  //transition: opacity 0.5s ease-in-out;
+  transition: all 2s ease-in-out;
+}
 main {
   width: 100%;
   background-color: #ddebfa;

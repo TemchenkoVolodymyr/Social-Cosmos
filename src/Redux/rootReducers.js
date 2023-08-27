@@ -10,6 +10,7 @@ import {currentChatReducer} from "./CurrentChat/currentChatReducer";
 import {currentChatTextReducer} from "./CurrentChatTexts/currentChatTextReducer";
 import {onlineMessagesReducer} from "./onlineMessages/onlineMessagesReducer";
 import {allChatsCurrentLoginUserReducer} from "./AllChatsCurrentLoginUser/allChatsCurrentLoginUserReducer";
+import {sidebarReducer} from "./Sidebar/sidebarReducer";
 
 
 export default combineReducers({
@@ -23,7 +24,8 @@ export default combineReducers({
   currentChat:currentChatReducer,
   currentChatTexts:currentChatTextReducer,
   onlineMessages:onlineMessagesReducer,
-  allChatsCurrentUser:allChatsCurrentLoginUserReducer
+  allChatsCurrentUser:allChatsCurrentLoginUserReducer,
+  sidebar:sidebarReducer
 
   },
 );

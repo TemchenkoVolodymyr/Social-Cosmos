@@ -26,7 +26,7 @@ const ChatContext = (props) => {
     socket.emit("addNewUser", user?.id)
     socket.on("getOnlineUsers", (res) => {
       dispatch(onlineUserAC(res))})
-  }, [socket])
+  }, [socket,user])
 
 
   // send message

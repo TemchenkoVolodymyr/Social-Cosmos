@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState} from 'react';
 import style from './Main.module.scss'
 import {IoSendSharp} from "react-icons/io5";
 import {
@@ -14,6 +14,8 @@ import {BsEmojiSmile} from "react-icons/bs";
 import Picker from '@emoji-mart/react'
 import data from '@emoji-mart/data'
 import {allChatsCurrentLoginUserAC} from "../../Redux/AllChatsCurrentLoginUser/allChatsCurrentLoginUserAC";
+import MyContext from "../../ContextAPI/MyContext";
+import {sidebarAC} from "../../Redux/Sidebar/sidebarAC";
 
 
 const Main = () => {
@@ -30,6 +32,8 @@ const Main = () => {
   const [openEmoji, setOpenEmoji] = useState(false)
   const allChats = useSelector((state) => state.allChatsCurrentUser)
 
+  const sidebarStatus = useSelector((state) => state.sidebar)
+console.log(currentChat)
   const sendNewMessage = async () => {
     if (message && currentChat) {
       scroll.current?.scrollIntoView({behavior: "smooth"})
@@ -74,13 +78,22 @@ const Main = () => {
     scroll.current?.scrollIntoView({behavior: "smooth"})
   }, [currentMessageToSend, scroll])
 
+  const changeSidebar = () =>{
+    dispatch(sidebarAC())
+  }
+
+  console.log(recipientUser)
+
   return (
     <div className={style.container}>
 
       <div className={style.recipient}>
+        <div onClick={changeSidebar} className={`${style.headerBurger} ${sidebarStatus ? style.active : null}`}>
+          <span></span>
+        </div>
         {recipientUser ? (
           <>
-            <p className={style.nameRecipient}>{recipientUser.name}</p>
+            <p className={style.nameRecipient}>{currentChat?.interlocutor[0] === currentUser.name ? currentChat?.interlocutor[3] : currentChat?.interlocutor[0]}</p>
             {onlineUsers?.find((online) => online.userId === recipientUser._id) ? (
               <p className={style.status}>
                 <RiRadioButtonLine fontSize={15} color={"green"}></RiRadioButtonLine>
@@ -107,7 +120,7 @@ const Main = () => {
 
               {item.senderId !== currentUser.id ? <img src={avatar} alt={'avatar'}/> :
                 <p className={style.meAvatar}>{currentUser.name.charAt(0).toLocaleUpperCase()}</p>}
-              <p>{formattedTime}</p>
+              <p className={style.time}>{formattedTime}</p>
             </div>
             <div className={`${style.wrapperText} ${item.senderId !== currentUser.id ? style.you : null}`}>
               <p>{item.text}</p>
@@ -122,8 +135,8 @@ const Main = () => {
           >
           </textarea>
           {openEmoji &&
-            <div className={style.picker}><Picker data={data} onEmojiSelect={handleEmojiSelect}></Picker></div>}
-          <BsEmojiSmile onClick={() => setOpenEmoji(!openEmoji)}></BsEmojiSmile>
+            <div className={style.picker}><Picker  emoji={{perline:2 }} data={data} onEmojiSelect={handleEmojiSelect}></Picker></div>}
+          <BsEmojiSmile className={style.smile} onClick={() => setOpenEmoji(!openEmoji)}></BsEmojiSmile>
           <IoSendSharp onClick={sendNewMessage}></IoSendSharp>
         </div>
       </div>

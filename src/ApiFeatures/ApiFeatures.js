@@ -36,13 +36,14 @@ export const getAllUsers = async () => {
   return await axios.get('https://delicious-pizza-50bbb34e6fdd.herokuapp.com/social')
 }
 
-export const setNewMessage = async (message, idUser, author, recipientId) => {
+export const setNewMessage = async (message, idUser, author, recipientId,currentUserName) => {
   return await axios.post('https://delicious-pizza-50bbb34e6fdd.herokuapp.com/message', {
     message,
     idUser,
     author,
     date: new Date().toLocaleTimeString(),
-    recipientId
+    recipientId,
+    currentUserName
   })
 }
 
@@ -68,14 +69,16 @@ export const getCurrentChat = async (firstId, secondId) => {
 export const getCurrentUserChats = async (firstId, secondId) => {
   return await axios.get(`https://delicious-pizza-50bbb34e6fdd.herokuapp.com/message/findAllChats/${firstId}/${secondId}`)
 }
-export const createChat = async (firstId, secondId , name , photo , isUserInterlocutor) => {
-  console.log(isUserInterlocutor)
+export const createChat = async (firstId, secondId , name , photo , idUserInterlocutor,currentUserName,) => {
+
   return await axios.post(`https://delicious-pizza-50bbb34e6fdd.herokuapp.com/message`, {
     firstId,
     secondId,
     name,
     photo : photo || null,
-    idUser:isUserInterlocutor
+    idUser:idUserInterlocutor,
+    currentUserName,
+    recipientUserId:firstId
   })
 }
 

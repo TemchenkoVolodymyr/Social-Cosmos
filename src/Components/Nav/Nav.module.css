@@ -5,15 +5,15 @@
   font-family: Candara;
   letter-spacing: 1.3px;
 }
-@media (max-width: 767px) {
-  .container {
-    margin-top: 50px;
-  }
-}
 .container .header {
   background-color: rgba(54, 69, 122, 0.36);
   padding: 20px;
   transition: all 0.5s;
+}
+@media (max-width: 767px) {
+  .container .header {
+    padding: 10px;
+  }
 }
 .container .header h1 {
   padding: 10px;
@@ -24,12 +24,34 @@
   transition: all 0.9s;
 }
 .container .header h1 svg {
-  margin-left: 10px;
-  padding-left: 90px;
+  margin-right: 15px;
   transition: all 0.5s;
+}
+@media (max-width: 767px) {
+  .container .header h1 svg {
+    font-size: 20px;
+    padding: 0 5px;
+    margin-left: 0;
+  }
+}
+@media (max-width: 767px) {
+  .container .header h1 {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
 }
 .container .header .activeList {
   color: #000470;
+  border-radius: 5px;
+  background-color: rgba(2, 2, 2, 0.19);
+}
+@media (max-width: 767px) {
+  .container .header {
+    background-color: transparent;
+  }
+  .container .header .arrowSvg {
+    display: none;
+  }
 }
 .container .search .wrapperSearch {
   padding: 35px;
@@ -67,6 +89,11 @@
   color: #aadbe1;
   margin-left: 15px;
 }
+@media (max-width: 767px) {
+  .container .search {
+    display: none;
+  }
+}
 .container .logout {
   background-color: rgba(54, 69, 122, 0.36);
   position: absolute;
@@ -87,10 +114,21 @@
   border-bottom: 3px solid #aadbe1;
   cursor: pointer;
 }
+@media (max-width: 767px) {
+  .container .logout .wrapperLogout p {
+    font-size: 12px;
+    border-bottom: none;
+  }
+}
 .container .logout .wrapperLogout svg {
   font-size: 30px;
   color: #aadbe1;
   cursor: pointer;
+}
+@media (max-width: 767px) {
+  .container .logout .wrapperLogout svg {
+    font-size: 20px;
+  }
 }
 .container .navDialogs {
   padding: 5px;
@@ -100,6 +138,11 @@
 }
 .container .navDialogs::-webkit-scrollbar {
   width: 5px;
+}
+@media (max-width: 767px) {
+  .container .navDialogs::-webkit-scrollbar {
+    width: 0;
+  }
 }
 .container .navDialogs::-webkit-scrollbar-track {
   background: #4b4949;
@@ -121,6 +164,11 @@
   background-color: rgba(27, 27, 27, 0.38);
   cursor: pointer;
 }
+@media (max-width: 767px) {
+  .container .containerUsers {
+    padding: 5px;
+  }
+}
 .container .wrapperAvatar {
   display: flex;
   align-items: center;
@@ -139,6 +187,15 @@
 }
 .container .wrapperAvatar .wrapperAva {
   display: flex;
+}
+@media (max-width: 767px) {
+  .container .wrapperAvatar .name {
+    font-size: 14px;
+    padding: 5px;
+  }
+  .container .wrapperAvatar img {
+    max-width: 40px;
+  }
 }
 .container .wrapperName {
   margin-left: 20px;
@@ -167,6 +224,11 @@
   font-weight: bold;
   padding: 10px;
   overflow: hidden;
+}
+.container .wrapperText .wrapperInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .container .time {
   display: flex;
@@ -232,11 +294,6 @@
 }
 .container .wrapper:hover {
   cursor: pointer;
-}
-@media (max-width: 767px) {
-  .container {
-    display: none;
-  }
 }
 
 /*# sourceMappingURL=Nav.module.css.map */

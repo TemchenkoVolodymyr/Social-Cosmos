@@ -6,14 +6,36 @@
   display: flex;
   justify-content: space-between;
   height: 100vh;
+  background-color: #ddebfa;
 }
 
 nav {
-  width: 25%;
+  width: 20%;
   background-color: rgba(30, 22, 61, 0.85);
+  transition: all 2s ease-in-out;
+}
+@media (max-width: 767px) {
+  nav {
+    width: 50%;
+    position: absolute;
+    top: -100%;
+    opacity: 0;
+  }
 }
 nav .wrapperNav {
   height: 100%;
+}
+@media (max-width: 767px) {
+  nav {
+    background-color: rgba(72, 72, 119, 0.77);
+  }
+}
+
+.sidebar {
+  position: relative;
+  top: 0;
+  opacity: 1;
+  transition: all 2s ease-in-out;
 }
 
 main {
