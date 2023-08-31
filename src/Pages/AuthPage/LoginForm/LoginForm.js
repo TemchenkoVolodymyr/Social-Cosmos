@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Field, reduxForm} from "redux-form";
 import style from './LoginForm.module.scss'
-import {NavLink} from "react-router-dom";
 
 
 let LoginForm = (props) => {

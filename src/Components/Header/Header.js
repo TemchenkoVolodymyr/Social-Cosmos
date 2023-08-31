@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React from 'react';
 import style from './Header.module.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {logoutAC} from "../../Redux/Auth/AuthAC";
