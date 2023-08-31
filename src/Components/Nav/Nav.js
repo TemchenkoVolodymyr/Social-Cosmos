@@ -165,7 +165,7 @@ console.log(allChats)
                 </div>
                 {onlineUsers?.find(onlineU => onlineU.userId === user._id) ?
                   <RiRadioButtonLine fontSize={20} color={'green'} style={{boxShadow:'rgb(5 87 8 / 87%) 0 10px 48px 21px'}}></RiRadioButtonLine> :
-                  <RiRadioButtonLine fontSize={20} color={'red'} style={{boxShadow:'rgb(123 11 36) 0 10px 48px 21px'}}></RiRadioButtonLine>}
+                  <RiRadioButtonLine fontSize={20} color={'red'} style={{boxShadow:'rgb(123 11 36) 0 10px 48px 21px',background:'#4f0303'}}></RiRadioButtonLine>}
               </div> : null)
           : <div>
             {foundMessage ? foundMessage.map(item => <div className={style.containerUsers}

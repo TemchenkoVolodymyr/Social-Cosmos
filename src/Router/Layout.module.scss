@@ -14,7 +14,7 @@
 
 nav {
   width: 30%;
-  background-color: rgba(30, 22, 61, 0.52);
+  background-color: rgb(20 19 22 / 61%);
   transition: all 1s ease-in-out;
 
   @media (max-width: 767px) {
@@ -22,6 +22,7 @@ nav {
     position: absolute;
     left: -100%;
     opacity: 0;
+
   }
 
   .wrapperNav {
@@ -29,7 +30,7 @@ nav {
   }
 
   @media (max-width: 767px) {
-    background-color: rgba(72, 72, 119, 0.77);
+    background-color: rgb(14 14 14 / 76%);
   }
 }
 
@@ -48,11 +49,15 @@ main {
   width: 100%;
   //background-color: #ddebfa;
   background-size: cover;
+  transition: all 1s ease-in-out;
 
   .wrapperMain {
     height: 100%;
     width: 100%;
   }
+}
+.sidebarShow{
+  width: 50%;
 }
 
 

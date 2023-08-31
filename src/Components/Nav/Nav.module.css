@@ -46,6 +46,11 @@
   background-color: rgba(2, 2, 2, 0.19);
 }
 @media (max-width: 767px) {
+  .container .header .activeList {
+    background-color: rgba(106, 217, 239, 0.42);
+  }
+}
+@media (max-width: 767px) {
   .container .header {
     background-color: transparent;
   }
@@ -99,7 +104,7 @@
   }
 }
 .container .logout {
-  background-color: rgba(54, 69, 122, 0.36);
+  background-color: rgba(80, 115, 135, 0.4);
   position: absolute;
   bottom: 0;
   width: 100%;

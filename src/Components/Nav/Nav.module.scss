@@ -49,6 +49,9 @@ $headerBg: rgb(54, 47, 126);
       color: #000470;
       border-radius: 5px;
       background-color: rgba(2, 2, 2, 0.19);
+      @media (max-width: 767px) {
+        background-color: rgba(106, 217, 239, 0.42);
+      }
     }
 
     @media (max-width: 767px) {
@@ -119,7 +122,7 @@ $headerBg: rgb(54, 47, 126);
   }
 
   .logout {
-    background-color: rgba(54, 69, 122, 0.36);
+    background-color: rgb(80 115 135 / 40%);
     position: absolute;
     bottom: 0;
     //padding: 35px 15px;
@@ -150,6 +153,7 @@ $headerBg: rgb(54, 47, 126);
         cursor: pointer;
         box-shadow: rgb(207 14 14) -3px -5px 34px 6px;
         background: #781e1e;
+
         @media (max-width: 767px) {
           font-size: 20px;
         }

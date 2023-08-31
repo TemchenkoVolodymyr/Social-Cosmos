@@ -12,7 +12,7 @@
 
 nav {
   width: 30%;
-  background-color: rgba(30, 22, 61, 0.52);
+  background-color: rgba(20, 19, 22, 0.61);
   transition: all 1s ease-in-out;
 }
 @media (max-width: 767px) {
@@ -28,7 +28,7 @@ nav .wrapperNav {
 }
 @media (max-width: 767px) {
   nav {
-    background-color: rgba(72, 72, 119, 0.77);
+    background-color: rgba(14, 14, 14, 0.76);
   }
 }
 
@@ -48,10 +48,15 @@ nav .wrapperNav {
 main {
   width: 100%;
   background-size: cover;
+  transition: all 1s ease-in-out;
 }
 main .wrapperMain {
   height: 100%;
   width: 100%;
+}
+
+.sidebarShow {
+  width: 50%;
 }
 
 /*# sourceMappingURL=Layout.module.css.map */

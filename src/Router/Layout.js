@@ -48,7 +48,7 @@ const Layout = () => {
               <Nav/>
             </div>
           </nav>
-          <main >
+          <main className={ sidebarStatus ? style.sidebarShow : null}>
             <div className={style.wrapperMain}>
               <Outlet></Outlet>
 

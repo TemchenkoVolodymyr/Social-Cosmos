@@ -239,6 +239,11 @@
   align-items: center;
   box-shadow: rgb(243, 243, 245) 0 20px 50px -10px;
 }
+@media (max-width: 767px) {
+  .container .wrapperTextarea .textarea {
+    box-shadow: none;
+  }
+}
 .container .wrapperTextarea .textarea svg {
   font-size: 50px;
   color: #aadbe1;
@@ -273,6 +278,16 @@
 }
 .container .wrapperTextarea .textarea textarea:focus::placeholder {
   opacity: 0;
+}
+@media (max-width: 767px) {
+  .container .wrapperTextarea .textarea textarea {
+    font-size: 15px;
+  }
+  .container .wrapperTextarea .textarea textarea::placeholder {
+    color: rgba(253, 253, 253, 0.8);
+    font-size: 12px;
+    font-weight: normal;
+  }
 }
 .container .noRecipientUser .noRecipient {
   display: flex;

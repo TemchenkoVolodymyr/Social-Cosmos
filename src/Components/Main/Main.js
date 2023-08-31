@@ -122,7 +122,7 @@ const Main = () => {
             </div>
           </div>)
         }) : <div className={style.noRecipient}>
-          <p> {sidebarStatus ? "Choose dialogs..." : "Choose some dialogs to start a conversation..."}</p></div>}
+          <p> { "Choose dialogs..." }</p></div>}
       </div>
       <div className={style.wrapperTextarea}>
         <div className={style.textarea}>
