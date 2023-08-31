@@ -1,4 +1,6 @@
 import {initialStore} from "../initialState";
+import axios from "axios";
+import {allUsersAC} from "./allUsersAC";
 
 export const SET_USERS = "SET_USERS"
 
@@ -19,5 +21,19 @@ export const allUsersReducer = (users = initialStore.users,action) => {
     }
 
     default:return users
+  }
+}
+
+
+
+export const getAllUsersThinkCreator =  (currentUser) => {
+  return async (dispatch) => {
+   return await axios.get('https://delicious-pizza-50bbb34e6fdd.herokuapp.com/social').then(res => {
+
+     if(res.status === 200) {
+       const newArray = res.data.data.result.filter(item => item?._id !== currentUser?.id)
+       dispatch(allUsersAC(newArray))
+     }
+   })
   }
 }

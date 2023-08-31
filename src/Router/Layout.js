@@ -3,36 +3,25 @@ import style from './Layout.module.scss'
 import {Outlet} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import Auth from "../Pages/AuthPage/Auth";
-import bg from '../assets/bg3.png'
 import Nav from "../Components/Nav/Nav";
-import {editUser, getALlMessages, getAllUsers} from "../ApiFeatures/ApiFeatures";
-import {allUsersAC} from "../Redux/AllUsers/allUsersAC";
-import Header from "../Components/Header/Header";
+import {editUser} from "../ApiFeatures/ApiFeatures";
 import {Beforeunload} from "react-beforeunload";
 import Main from "../Components/Main/Main";
-import {messagesAC} from "../Redux/Messages/messagesAC";
-import bgMessage from '../assets/bgDialogs.png'
 import test from '../assets/test.png'
+import {getAllUsersThinkCreator} from "../Redux/AllUsers/allUsersReducer";
 
 const Layout = () => {
 
   const isAuth = useSelector((state) => state.isAuth);
   const currentUser = useSelector((state) => state.user);
+
   const dispatch = useDispatch()
 
   const sidebarStatus = useSelector((state) => state.sidebar)
 
   useEffect(() => {
-    getAllUsers().then(res => {
 
-      const newArray = res.data.data.result.filter(item => item?._id !== currentUser?.id)
-      dispatch(allUsersAC(newArray))
-    })
-    // getALlMessages().then(res => {
-    //   if(res.status === 200) {
-    //     dispatch(messagesAC(res.data.data.result))
-    //   }
-    // })
+    dispatch(getAllUsersThinkCreator(currentUser))
   }, [isAuth,currentUser])
 
   if (!isAuth) {
@@ -53,7 +42,6 @@ const Layout = () => {
               <Outlet></Outlet>
 
                 <Main/>
-
             </div>
           </main>
 
